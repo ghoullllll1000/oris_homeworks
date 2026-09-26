@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <title>Поиск</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Afacad";
+            font-weight: bold;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 9.28px;
+            background-color: #FAFAFA;
+            border: 1.16px solid #EEEEEE;
+            border-radius: 18.55px;
+            padding-left: 27.83px;
+            padding-right: 27.83px;
+            width: 621.45px;
+            height: 65.1px;
+        }
+
+        .search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-family: "Poppins";
+            font-size: 20px;
+            font-weight: 400;
+            height: 100%;
+            line-height: 140%;
+        }
+
+        .search-input::placeholder {
+            color: #9E9E9E;
+        }
+
+        .icons-container {
+            display: flex;
+            gap: 27.83px;
+        }
+
+        .icons-container a {
+            width: 65px;
+            height: 65px;
+            border-radius: 18.57px;
+            border: 1.16px;
+            background-color: #FAFAFA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon img {
+            width: 32.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display:flex; align-items: flex-end; flex-direction: column; position: absolute; width: 100%; padding-right: 35px; padding-top: 35px;">
+        <div style="font-size: 32px">36°</div>
+        <div style="font-size: 20px; color: #6E6CDF">Ahmedabad</div>
+    </div>
+
+
+    <div style="display: flex; align-items: center; flex-direction: column; gap: 55.65px; min-height: 100vh;justify-content: center;">
+        <div style="display:flex; align-items: center; flex-direction: column; gap: 9.28px">
+            <div style="font-size: 74px">09:11:01</div>
+            <div style="font-size: 36px; color: #6E6CDF">Good morning, Saad.</div>
+        </div>
+
+        <div style="display: flex; align-items: center; flex-direction: column; gap: 55.65px">
+            <form action="https://yandex.ru/search/" method="get" class="search-container">
+                <img src="images/search-01.svg">
+                <input type="text" name="text" placeholder="Search" class="search-input" autocomplete="off">
+            </form>
+
+            <div class="icons-container">
+                <a href="https://www.youtube.com/" target="_blank"><img src="images/youtube.svg"></a>
+                <a href="https://chatgpt.com/," target="_blank"><img src="images/chat_gpt.svg"></a>
+                <a href="https://www.geeksforgeeks.org/" target="_blank"><img src="images/ss.svg"></a>
+                <a href="https://chat.deepseek.com/" target="_blank"><img src="images/deepseek.svg"></a>
+                <a href="https://github.com/" target="_blank"><img src="images/github.svg"></a>
+                <a href="https://www.linkedin-status.com/" target="_blank"><img src="images/linkedin.svg"></a>
+                <a href="https://ntp.msn.com/edge/ntp" target="_blank"><img src="images/plus.svg"></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

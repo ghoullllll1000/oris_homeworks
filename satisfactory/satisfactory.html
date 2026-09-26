@@ -1,0 +1,2638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Official Satisfactory Wiki</title>
+	<link rel="icon" href="images/Site-favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+		rel="stylesheet">
+	<style>
+		@font-face {
+			font-family: "Satisfontory_v1.5";
+			src: url("images/Satisfontory_v1.5.ttf") format("truetype");
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		:root {
+			-webkit-locale: "en";
+			direction: ltr;
+			--wikigg-header-height: 35px;
+			--wikigg-header-scroll-height: 35px;
+			--wikigg-header-button-size: 30px;
+			--wikigg-header-background-color: #000538;
+			--wikigg-accent-color: #ff1985;
+			--wikigg-header-text-color: #fff;
+			--wikigg-header-icon-color: #dedee5;
+			--wikigg-themeprefs-background-color: #29305c;
+			--wikigg-themeprefs-background-color--hover: #2e3460;
+			--wikigg-themeprefs-background-color--active: #313762;
+			--wikigg-themeprefs-content-background-color: #111431;
+			--wikigg-themeprefs-content-text-color: #fff;
+			--wikigg-themeprefs-item-background-color--hover: #2b325f;
+			--wikigg-themeprefs-item-background-color--active: #2f355f;
+			--color-base: var(--wiki-content-text-color, #eaecf0);
+			--color-base-fixed: #202122;
+			--color-base--hover: color-mix(in srgb, var(--wiki-content-text-color, #eaecf0) 50%, var(--wiki-content-dynamic-color, #f8f9fa));
+			--color-emphasized: var(--wiki-content-heading-color, #f8f9fa);
+			--color-subtle: var(--wiki-content-text-mix-color, #a2a9b1);
+			--color-placeholder: var(--wiki-content-text-mix-color, #72777d);
+			--color-disabled: var(--wiki-content-text-mix-color, #54595d);
+			--color-disabled-emphasized: var(--wiki-content-text-mix-color, #72777d);
+			--color-inverted: var(--wiki-content-dynamic-color--inverted, #101418);
+			--color-inverted-fixed: #fff;
+			--color-progressive: var(--wiki-content-link-color, #88a3e8);
+			--color-progressive--hover: var(--wiki-content-link-color--hover, #b0c1f0);
+			--color-progressive--active: var(--wiki-content-link-color, #cbd6f6);
+			--color-progressive--focus: var(--wiki-content-link-color, #36c);
+			--color-destructive: var(--wiki-alert-color, #fd7865);
+			--color-destructive--hover: color-mix(in srgb, var(--wiki-alert-color, #fd7865) 80%, var(--wiki-content-dynamic-color, #f8f9fa));
+			--color-destructive--active: var(--wiki-alert-color, #ffc8bd);
+			--color-destructive--focus: var(--wiki-accent-color, #36c);
+			--color-visited: var(--wiki-content-link-color--visited, #a799cd);
+			--color-visited--hover: var(--wiki-content-link-color--visited, #c5b9dd);
+			--color-visited--active: var(--wiki-content-link-color--visited, #d9d0e9);
+			--color-destructive--visited: var(--wiki-content-redlink-color, #c99391);
+			--color-destructive--visited--hover: var(--wiki-content-redlink-color, #dcb5b3);
+			--color-destructive--visited--active: var(--wiki-content-redlink-color, #e8cecd);
+			--color-error: var(--wiki-alert-color, #fd7865);
+			--color-error--hover: var(--wiki-alert-color, #fea898);
+			--color-error--active: var(--wiki-alert-color, #ffc8bd);
+			--color-warning: var(--wiki-warning-color, #ca982e);
+			--color-success: var(--wiki-success-color, #2cb491);
+			--color-notice: var(--wiki-content-text-color, #a2a9b1);
+			--color-icon-error: var(--wiki-alert-color, #f54739);
+			--color-icon-warning: var(--wiki-warning-color, #ab7f2a);
+			--color-icon-success: var(--wiki-success-color, #099979);
+			--color-icon-notice: var(--wiki-content-text-color, #72777d);
+			--color-content-added: var(--wiki-success-color, #80cdb3);
+			--color-content-removed: var(--wiki-alert-color, #fd7865);
+			--box-shadow-color-base: #fff;
+			--box-shadow-color-progressive--active: var(--wiki-accent-color, #233566);
+			--box-shadow-color-progressive--focus: var(--wiki-accent-color, #6485d1);
+			--box-shadow-color-progressive-selected: var(--wiki-accent-color, #88a3e8);
+			--box-shadow-color-progressive-selected--hover: var(--wiki-accent-color--hover, #b0c1f0);
+			--box-shadow-color-progressive-selected--active: var(--wiki-accent-color, #cbd6f6);
+			--box-shadow-color-destructive--focus: var(--wiki-accent-color, #6485d1);
+			--box-shadow-color-inverted: #000;
+			--box-shadow-color-transparent: transparent;
+			--background-color-base: var(--wiki-content-background-color, #101418);
+			--background-color-base-fixed: #fff;
+			--background-color-neutral: var(--wiki-content-background-color--secondary, #27292d);
+			--background-color-neutral-subtle: color-mix(in srgb, var(--wiki-content-background-color--secondary, #27292d) 50%, var(--wiki-content-background-color, #101418));
+			--background-color-interactive: var(--wiki-content-background-color--secondary, #27292d);
+			--background-color-interactive--hover: var(--wiki-content-background-color--secondary, #404244);
+			--background-color-interactive--active: var(--wiki-content-background-color--secondary, #54595d);
+			--background-color-interactive-subtle: color-mix(in srgb, var(--wiki-accent-color, #36c) 5%, var(--wiki-content-background-color, #101418));
+			--background-color-interactive-subtle--active: color-mix(in srgb, var(--wiki-accent-color, #36c) 15%, var(--wiki-content-background-color, #101418));
+			--background-color-disabled: var(--wiki-content-text-mix-color, #404244);
+			--background-color-disabled-subtle: var(--wiki-content-background-color--secondary, #27292d);
+			--background-color-inverted: var(--wiki-content-dynamic-color, #f8f9fa);
+			--background-color-progressive: var(--wiki-accent-color, #36c);
+			--background-color-progressive--hover: var(--wiki-accent-color--hover, #3056a9);
+			--background-color-progressive--active: color-mix(in srgb, var(--wiki-accent-color, #36c) 50%, var(--wiki-content-background-color, #101418));
+			--background-color-progressive--focus: var(--wiki-accent-color, #6485d1);
+			--background-color-progressive-subtle: color-mix(in srgb, var(--wiki-accent-color) 15%, var(--wiki-content-background-color, #101418));
+			--background-color-progressive-subtle--hover: color-mix(in srgb, var(--wiki-accent-color) 20%, var(--wiki-content-background-color, #101418));
+			--background-color-progressive-subtle--active: color-mix(in srgb, var(--wiki-accent-color) 25%, var(--wiki-content-background-color, #101418));
+			--background-color-destructive: var(--wiki-alert-color, #bf3c2c);
+			--background-color-destructive--hover: color-mix(in srgb, var(--wiki-alert-color, #bf3c2c) 80%, var(--wiki-content-dynamic-color, #f8f9fa));
+			--background-color-destructive--active: var(--wiki-alert-color, #612419);
+			--background-color-destructive--focus: var(--wiki-accent-color, #6485d1);
+			--background-color-destructive-subtle: color-mix(in srgb, var(--wiki-alert-color, #bf3c2c) 15%, var(--wiki-content-background-color, #101418));
+			--background-color-destructive-subtle--hover: color-mix(in srgb, var(--wiki-alert-color, #bf3c2c) 20%, var(--wiki-content-background-color, #101418));
+			--background-color-destructive-subtle--active: color-mix(in srgb, var(--wiki-alert-color, #bf3c2c) 25%, var(--wiki-content-background-color, #101418));
+			--background-color-error: var(--wiki-alert-color, #f54739);
+			--background-color-error--hover: var(--wiki-alert-color, #d74032);
+			--background-color-error--active: var(--wiki-alert-color, #bf3c2c);
+			--background-color-error-subtle: color-mix(in srgb, var(--wiki-alert-color, #f54739) 25%, var(--wiki-content-background-color, #101418));
+			--background-color-error-subtle--hover: color-mix(in srgb, var(--wiki-alert-color, #f54739) 30%, var(--wiki-content-background-color, #101418));
+			--background-color-error-subtle--active: color-mix(in srgb, var(--wiki-alert-color, #f54739) 35%, var(--wiki-content-background-color, #101418));
+			--background-color-warning-subtle: color-mix(in srgb, var(--wiki-warning-color, #ca982e) 25%, var(--wiki-content-background-color, #101418));
+			--background-color-success-subtle: color-mix(in srgb, var(--wiki-success-color, #2cb491) 25%, var(--wiki-content-background-color, #101418));
+			--background-color-notice-subtle: var(--wiki-content-background-color--secondary, #27292d);
+			--background-color-content-added: var(--wiki-success-color, #233566);
+			--background-color-content-removed: var(--wiki-alert-color, #453217);
+			--background-color-transparent: transparent;
+			--background-color-backdrop-light: color-mix(in srgb, var(--wiki-content-background-color, #101418) 65%, transparent);
+			--background-color-backdrop-dark: rgba(255, 255, 255, 0.65);
+			--background-color-button-quiet--hover: rgba(0, 24, 73, 0.027);
+			--background-color-button-quiet--active: var(--wiki-content-background-color--secondary, rgba(0, 24, 73, 0.082));
+			--background-color-input-binary--checked: var(--wiki-accent-color, #36c);
+			--background-color-tab-list-item-framed--hover: rgba(255, 255, 255, 0.3);
+			--background-color-tab-list-item-framed--active: rgba(255, 255, 255, 0.65);
+			--border-color-base: var(--wiki-content-border-color, #72777d);
+			--border-color-subtle: var(--wiki-content-border-color--secondary, var(--wiki-content-border-color, #54595d));
+			--border-color-muted: var(--wiki-content-border-color--secondary, var(--wiki-content-border-color, #404244));
+			--border-color-interactive: color-mix(in srgb, var(--wiki-accent-color, #72777d) 50%, transparent);
+			--border-color-interactive--hover: var(--wiki-accent-color--hover, #a2a9b1);
+			--border-color-interactive--active: var(--wiki-accent-color, #c8ccd1);
+			--border-color-disabled: var(--wiki-content-text-mix-color, #54595d);
+			--border-color-inverted: #101418;
+			--border-color-progressive: var(--wiki-accent-color, #6485d1);
+			--border-color-progressive--hover: var(--wiki-accent-color--hover, #88a3e8);
+			--border-color-progressive--active: color-mix(in srgb, var(--wiki-accent-color, #6485d1) 50%, transparent);
+			--border-color-progressive--focus: var(--wiki-accent-color, #6485d1);
+			--border-color-destructive: var(--wiki-alert-color, #f54739);
+			--border-color-destructive--hover: var(--wiki-alert-color, #fd7865);
+			--border-color-destructive--active: var(--wiki-alert-color, #fea898);
+			--border-color-destructive--focus: var(--wiki-accent-color, #6485d1);
+			--border-color-error: var(--wiki-alert-color, #f54739);
+			--border-color-error--hover: var(--wiki-alert-color, #fd7865);
+			--border-color-warning: var(--wiki-warning-color, #ab7f2a);
+			--border-color-success: var(--wiki-success-color, #099979);
+			--border-color-notice: var(--wiki-neutral-color, #72777d);
+			--border-color-content-added: var(--wiki-success-color, #233566);
+			--border-color-content-removed: var(--wiki-alert-color, #987027);
+			--border-color-transparent: transparent;
+			--border-color-divider: var(--wiki-content-border-color, #a2a9b1);
+			--outline-color-progressive--focus: var(--wiki-accent-color, #36c);
+			--color-link: var(--wiki-content-link-color, var(--color-progressive));
+			--color-link--hover: var(--wiki-content-link-color--hover, var(--color-progressive--hover));
+			--color-link--active: var(--wiki-content-link-color--hover, var(--color-progressive--active));
+			--color-link--focus: var(--wiki-content-link-color--hover, var(--color-progressive--focus));
+			--color-link--visited: var(--wiki-content-link-color--visited, var(--color-visited));
+			--color-link--visited--hover: var(--wiki-content-link-color--hover, var(--color-visited--hover));
+			--color-link--visited--active: var(--wiki-content-link-color--hover, var(--color-visited--active));
+			--color-link-red: var(--wiki-content-redlink-color, var(--color-destructive));
+			--color-link-red--hover: var(--wiki-content-redlink-color, var(--color-destructive--hover));
+			--color-link-red--active: var(--wiki-content-redlink-color, var(--color-destructive--active));
+			--color-link-red--focus: var(--wiki-content-redlink-color, var(--color-destructive--focus));
+			--color-link-red--visited: var(--wiki-content-redlink-color, var(--color-destructive--visited));
+			--color-link-red--visited--hover: var(--wiki-content-redlink-color, var(--color-destructive--visited--hover));
+			--color-link-red--visited--active: var(--wiki-content-redlink-color, var(--color-destructive--visited--active));
+			--border-color-input--hover: var(--wiki-accent-color, var(--border-color-interactive));
+			--border-color-input-binary: color-mix(in srgb, var(--wiki-accent-color, #6485d1) 50%, transparent);
+			--border-color-input-binary--hover: var(--wiki-accent-color, var(--border-color-progressive--hover));
+			--border-color-input-binary--active: color-mix(in srgb, var(--wiki-accent-color, #6485d1) 80%, transparent);
+			--border-color-input-binary--focus: var(--wiki-accent-color, var(--border-color-progressive--focus));
+			--border-color-input-binary--checked: var(--border-color-progressive);
+			--wgg-color-against-background-color-progressive: var(--wiki-accent-label-color, var(--color-inverted-fixed));
+			--wgg-color-against-background-color-destructive: var(--color-inverted-fixed);
+			--color-base--subtle: var(--wiki-content-text-mix-color, #a2a9b1);
+			--background-color-interactive-subtle--hover: hsl(from color-mix(in srgb, var(--wiki-accent-color, #36c) 10%, var(--wiki-content-background-color, #101418)) h s calc(l * 1.15));
+			--wiki-body-font-family: sans-serif;
+			--wiki-heading-font-family: "Noto Sans", system-ui, sans-serif;
+			--wiki-sidebar-heading-font-family: "Noto Sans", system-ui, sans-serif;
+			--wiki-sidebar-border-radius: 10px;
+			--wiki-sidebar-portal-spacing: 10px;
+			--wiki-content-border-width: 0px;
+			--wiki-sidebar-border-width: 0px;
+			--wiki-body-background-color: #000;
+			--wiki-body-background-image: none;
+			--wiki-content-background-color: #141414;
+			--wiki-content-background-opacity: 95%;
+			--wiki-content-border-color: #99673A;
+			--wiki-content-link-color: #e59344;
+			--wiki-accent-color: #fa9549;
+			--wiki-accent-label-color: #000;
+			--wiki-accent-link-color: #4F3F2F;
+			--wiki-icon-to-link-filter: invert(64%) sepia(37%) saturate(725%) hue-rotate(346deg) brightness(92%) contrast(95%);
+			--wiki-body-background-position: top center;
+			--wiki-body-background-size: cover;
+			--wiki-body-background-repeat: no-repeat;
+			--wiki-body-background-attachment: fixed;
+			--wiki-content-background-color--secondary: #323232;
+			--wiki-content-text-color: #e6e6e6;
+			--wiki-content-link-color--visited: var(--wiki-content-link-color);
+			--wiki-content-link-color--hover: var(--wiki-content-link-color);
+			--wiki-content-redlink-color: #F43B34;
+			--wiki-content-heading-color: var(--wiki-content-text-color);
+			--wiki-accent-color--hover: #d75f05;
+			--wiki-sidebar-background-color: var(--wiki-content-background-color);
+			--wiki-sidebar-background-opacity: var(--wiki-content-background-opacity);
+			--wiki-sidebar-border-color: var(--wiki-content-border-color);
+			--wiki-sidebar-link-color: var(--wiki-content-link-color);
+			--wiki-sidebar-link-color--hover: var(--wiki-content-link-color--hover);
+			--wiki-sidebar-heading-color: var(--wiki-content-heading-color);
+			--wiki-navigation-background-color: var(--wiki-content-background-color);
+			--wiki-navigation-background-color--secondary: var(--wiki-content-background-color);
+			--wiki-navigation-border-color: var(--wiki-content-border-color);
+			--wiki-navigation-text-color: var(--wiki-content-link-color);
+			--wiki-navigation-text-color--hover: var(--wiki-content-link-color--hover);
+			--wiki-navigation-selected-background-color: #D87D41;
+			--wiki-navigation-selected-border-color: var(--wiki-navigation-border-color);
+			--wiki-navigation-selected-text-color: #000;
+			--wiki-neutral-color: var(--wiki-content-text-mix-color);
+			--wiki-alert-color: #c90018;
+			--wiki-warning-color: #cf721c;
+			--wiki-success-color: #0c742f;
+			--wiki-body-dynamic-color: #ffffff;
+			--wiki-body-dynamic-color--inverted: #000000;
+			--wiki-body-dynamic-color--secondary: #cccccc;
+			--wiki-body-dynamic-color--secondary--inverted: #333333;
+			--wiki-content-border-color--secondary: color-mix(in srgb, var(--wiki-content-border-color) 50%, transparent);
+			--wiki-content-border-color--accent: color-mix(in srgb, var(--wiki-accent-color) 50%, transparent);
+			--wiki-content-link-label-color: #000;
+			--wiki-content-dynamic-color: #ffffff;
+			--wiki-content-dynamic-color--inverted: #000000;
+			--wiki-content-dynamic-color--secondary: #cccccc;
+			--wiki-content-dynamic-color--secondary--inverted: #333333;
+			--wiki-alert-label-color: #000000;
+			--wiki-warning-label-color: #000000;
+			--wiki-success-label-color: #000000;
+			--wiki-icon-general-filter: invert(100%);
+			--wiki-content-text-mix-color: color-mix(in srgb, var(--wiki-content-background-color), var(--wiki-content-text-color) 62%);
+			--wiki-content-text-mix-color-95: color-mix(in srgb, var(--wiki-content-background-color) 95%, var(--wiki-content-text-color));
+			--pi-width: 300px;
+			--pi-background: var(--wiki-content-background-color--secondary);
+			--pi-border-color: color-mix(in srgb, var(--wiki-accent-color) 50%, transparent);
+			--pi-secondary-background: var(--wiki-accent-color);
+			--pi-secondary-background-label: var(--wiki-accent-label-color);
+			--wiki-heading-color: var(--wiki-content-heading-color);
+			--jexcel-border-color: var(--wiki-content-border-color);
+			--head-height: var(--wiki-logo-height);
+			--sidebar-width: 10em;
+			--sidebar-spacing: 1em;
+			--content-right-margin: 1em;
+			--content-padding: 1.5em;
+			--wiki-logo-file-width: 500;
+			--wiki-logo-file-height: 194;
+			--wiki-logo-height: 6em;
+			--wiki-logo-margin: 0px;
+			--wiki-navigation-height: 2.5em;
+			--wiki-logo-ratio: calc(var(--wiki-logo-file-width) / var(--wiki-logo-file-height));
+			--wiki-logo-width: calc(var(--wiki-logo-ratio) * var(--wiki-logo-height));
+			--wiki-head-height: calc(var(--wiki-logo-height) + (var(--wiki-logo-margin) * 2));
+			--wiki-topLogo-gadget-is-active: 1;
+			--wiki-viewportWidth-and-noSidebar-gadgets-are-active: calc(var(--wiki-viewportWidth-gadget-is-active, 0) * var(--wiki-noSidebar-gadget-is-active, 0));
+			font-family: "Satisfontory_v1.5";
+		}
+
+		body {
+			scroll-padding-top: var(--wikigg-header-scroll-height);
+			font-size: 100%;
+			font-family: sans-serif;
+			height: auto;
+			min-height: 100%;
+			margin: 0;
+			overflow-y: scroll;
+			color-scheme: dark;
+			box-sizing: border-box;
+
+			background-color: var(--wiki-body-background-color);
+			background-image: var(--wiki-body-background-image);
+			background-position: var(--wiki-body-background-position, top center);
+			background-size: var(--wiki-body-background-size, cover);
+			background-repeat: var(--wiki-body-background-repeat, no-repeat);
+			background-attachment: var(--wiki-body-background-attachment, fixed);
+			font-family: var(--wiki-body-font-family);
+			accent-color: var(--wiki-accent-color);
+		}
+
+		#wgg-netbar {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 200;
+			font-size: 14px;
+			box-sizing: border-box;
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			justify-content: space-between;
+			gap: 0.8em;
+			height: var(--wikigg-header-height);
+			padding: 0 0.85em;
+			font-family: 'Nunito', sans-serif;
+			background-color: var(--wikigg-header-background-color);
+			color: var(--wikigg-header-text-color);
+			box-shadow: 0 0.25em 0.6em -0.15em rgba(0, 0, 0, 0.15);
+			--color-base: #fff;
+		}
+
+		#wgg-netbar>.wgg-netbar__left {
+			display: flex;
+			align-items: center;
+			gap: 0.8em;
+		}
+
+		.wgg-netbar__logo {
+			padding: calc((var(--wikigg-header-height) - 25px) / 2) 0;
+		}
+
+		#wgg-netbar .wgg-netbar__deals-link {
+			display: inline-flex;
+			align-items: center;
+			box-sizing: border-box;
+			gap: 5px;
+			height: calc(2 / 3 * var(--wikigg-header-button-size));
+			padding: 0 10px;
+			border-radius: 0.4em;
+			background-color: var(--wikigg-themeprefs-background-color);
+			white-space: nowrap;
+			transition: background-color 0.2s;
+		}
+
+		#wgg-netbar .wgg-netbar__deals-link>.wgg-netbar__deals-link__icon {
+			width: auto;
+			height: 14px;
+			flex-shrink: 0;
+		}
+
+		#wgg-netbar .wgg-netbar__deals-link {
+			display: inline-flex;
+			align-items: center;
+			box-sizing: border-box;
+			gap: 5px;
+			height: calc(2 / 3 * var(--wikigg-header-button-size));
+			padding: 0 10px;
+			border-radius: 0.4em;
+			background-color: var(--wikigg-themeprefs-background-color);
+			white-space: nowrap;
+			transition: background-color 0.2s;
+		}
+
+		#wgg-netbar .wgg-netbar__deals-link {
+			display: inline-flex;
+			align-items: center;
+			box-sizing: border-box;
+			gap: 5px;
+			height: calc(2 / 3 * var(--wikigg-header-button-size));
+			padding: 0 10px;
+			border-radius: 0.4em;
+			background-color: var(--wikigg-themeprefs-background-color);
+			white-space: nowrap;
+			transition: background-color 0.2s;
+		}
+
+		.wgg-netbar__user-links {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			gap: 0.75em;
+		}
+
+		.wgg-netbar__user-links #p-personal {
+			position: static;
+		}
+
+		.wgg-netbar__user-links #p-personal>ul {
+			padding-left: 0;
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			justify-content: flex-end;
+			gap: 0.75em;
+			list-style: none;
+		}
+
+		.wgg-netbar__user-links #p-personal>ul>li {
+			margin-bottom: 0;
+		}
+
+		li#pt-themes .ext-themetoggle-simple-icon {
+			display: block;
+			padding: 0.4rem;
+			font-size: 0;
+			transition: all 0.3s;
+		}
+
+		li#pt-themes .ext-themetoggle-simple-icon::before {
+			content: '';
+		}
+
+		#p-personal li+#pt-createaccount,
+		#p-personal li+#pt-userpage,
+		#p-personal li+#pt-preferences {
+			border-left: 1px solid var(--wikigg-themeprefs-background-color--hover);
+			padding-left: 0.75em;
+		}
+
+		.wgg-netbar__user-links #p-personal>ul>li>a,
+		.wgg-netbar__user-links #p-personal>ul>li>a:visited,
+		.wgg-netbar__user-links #p-personal>ul>li>a:focus,
+		.wgg-netbar__user-links #p-personal>ul>li>a:hover {
+			color: var(--wikigg-header-text-color);
+		}
+
+		.wgg-netbar__user-links #p-personal>ul>li>a>span {
+			word-break: keep-all;
+			white-space: nowrap;
+		}
+
+		.wgg-netbar__user-links #p-personal>ul>li {
+			margin-bottom: 0;
+		}
+
+		.wgg-netbar__user-links #p-personal>ul>li>a,
+		.wgg-netbar__user-links #p-personal>ul>li>a:visited,
+		.wgg-netbar__user-links #p-personal>ul>li>a:focus,
+		.wgg-netbar__user-links #p-personal>ul>li>a:hover {
+			color: var(--wikigg-header-text-color);
+		}
+
+		.content-wrapper {
+			font-family: "Noto Sans", system-ui, sans-serif;
+		}
+
+		#left-navigation,
+		#right-navigation {
+			margin-top: var(--vector-tab-top-spacing, 0px);
+			margin-left: 0;
+			box-sizing: border-box;
+			display: flex;
+			flex-flow: row wrap;
+			padding-left: 1.25em;
+		}
+
+		.vector-menu-tabs-legacy li.selected {
+			background: var(--wiki-navigation-selected-background-color);
+			border-color: var(--wiki-navigation-selected-border-color)
+		}
+
+		.vector-menu-tabs,
+		.vector-menu-tabs a,
+		#mw-head .vector-menu-dropdown .vector-menu-heading {
+			background-image: linear-gradient(to bottom, transparent 0, var(--wiki-navigation-border-color) 100%);
+			background-size: var(--wiki-content-border-width, 1px) 100%;
+		}
+
+		.vector-menu-tabs li a,
+		.vector-menu-tabs li.new a,
+		.vector-menu-tabs li.new a:visited,
+		.vector-menu-tabs .selected a,
+		.vector-menu-tabs .selected a:visited,
+		#mw-head .vector-menu-dropdown .vector-menu-heading {
+			color: var(--wiki-navigation-text-color)
+		}
+
+		.vector-menu-tabs .selected a,
+		.vector-menu-tabs .selected a:visited {
+			color: var(--wiki-navigation-selected-text-color)
+		}
+
+		.vector-menu-tabs-legacy ul {
+			float: left;
+			height: 100%;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.vector-menu-tabs-legacy li {
+			float: left;
+			display: block;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			line-height: 1.125em;
+			white-space: nowrap;
+		}
+
+		#mw-head .mw-portlet span,
+		#ca-ve-edit>a {
+			padding: 0.7em;
+		}
+
+		.vector-menu-tabs li a,
+		.vector-menu-tabs li.new a,
+		.vector-menu-tabs li.new a:visited,
+		.vector-menu-tabs .selected a,
+		.vector-menu-tabs .selected a:visited,
+		#mw-head .vector-menu-dropdown .vector-menu-heading {
+			display: flex;
+			padding: 0;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#right-navigation {
+			padding-right: 1.25em;
+			float: right;
+		}
+
+		#p-search {
+			margin-right: 0;
+			display: flex;
+			align-items: center;
+			z-index: 2;
+		}
+
+		.vector-search-box {
+			float: left;
+			margin-left: 0.5em;
+		}
+
+		.vector-search-box h3 {
+			display: block;
+			position: absolute;
+			clip: rect(1px, 1px, 1px, 1px);
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			border: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: var(--wiki-heading-color);
+		}
+
+		.mw-heading3,
+		h3 {
+			font-size: 128%;
+		}
+
+		#mw-panel {
+			position: relative;
+			top: 0;
+			margin-top: 0;
+			float: left;
+			padding-left: 0.5em;
+			font-size: inherit;
+			max-width: 148px;
+			left: 0;
+		}
+
+		#mw-navigation #mw-panel div#p-logo {
+			position: absolute;
+			top: calc(0px - var(--wiki-head-height) - var(--wiki-navigation-height));
+			left: 0;
+			height: var(--wiki-logo-height);
+			margin: var(--wiki-logo-margin) 0;
+		}
+
+		#mw-navigation #mw-panel div#p-logo .mw-wiki-logo {
+			display: block;
+			width: var(--wiki-logo-width);
+			height: var(--wiki-logo-height);
+			margin-left: calc(50vw - (var(--wiki-logo-width) / 2));
+			background-image: url("images/Site-logo.png");
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+
+		body {
+			padding-top: 35px;
+			font-size: 14px;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		a {
+			color: #e59344;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: #ffad5c;
+			text-decoration: underline;
+		}
+
+
+		#wgg-netbar>.wgg-netbar__left {
+			gap: 14px;
+		}
+
+		#wgg-netbar .wgg-netbar__deals-link {
+			background: #29305c;
+		}
+
+		#mw-navigation>h2 {
+			display: none;
+		}
+
+		#mw-head {
+			position: absolute;
+			top: 134.8px;
+			left: 235px;
+			right: 24px;
+			width: auto;
+			height: 43px;
+			border-bottom: 1px solid #99673a;
+			/* background: #141414; */
+			z-index: 20;
+		}
+
+		#left-navigation,
+		#right-navigation {
+			height: 42px;
+			padding: 0 8px;
+			margin-left: -40px;
+		}
+
+		#left-navigation {
+			float: left;
+		}
+
+		#right-navigation {
+			float: right;
+		}
+
+		.vector-menu-tabs-legacy ul {
+			height: 100%;
+		}
+
+		.vector-menu-tabs-legacy li {
+			height: 100%;
+		}
+
+		.vector-menu-tabs li a,
+		.vector-menu-tabs .selected a,
+		#mw-head .mw-portlet span {
+			min-height: 42px;
+			padding: 0 13px;
+			display: flex;
+			align-items: center;
+		}
+
+		.vector-menu-tabs-legacy li.selected {
+			background: #d87d41;
+			border-bottom: 2px solid #fa9549;
+		}
+
+		#p-views-label {
+			display: none;
+		}
+
+		#p-search {
+			margin-left: 12px;
+		}
+
+		.vector-search-box-inner {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+		}
+
+		.vector-search-box-input {
+			width: 270px;
+			height: 32px;
+			padding: 6px 10px;
+			color: #e6e6e6;
+			background: #252525;
+			border: 1px solid #99673a;
+			border-radius: 4px;
+		}
+
+		#mw-panel {
+			position: absolute;
+			left: 16px;
+			top: 50px;
+			width: 195px;
+			padding: 0;
+			margin: 0;
+			float: none;
+			z-index: 30;
+		}
+
+		#p-logo {
+			position: static !important;
+			/* width: 195px; */
+			/* height: 76px; */
+			margin: 0 auto;
+			transform: none;
+		}
+
+		#p-logo a {
+			display: block;
+			width: 195px;
+			height: 76px;
+			background: url("images/Site-logo.png") center center / contain no-repeat;
+		}
+
+		.mw-wiki-logo {
+			background-size: contain;
+		}
+
+		.mw-portlet-portal,
+		.mw-portlet-interlanguage,
+		#mw-panel .mw-portlet {
+			margin: 0 0 16px;
+			margin-top: 2.5px;
+			padding: 0;
+		}
+
+		#mw-panel .vector-menu-heading {
+			margin: 0;
+			padding: 7px 10px;
+			color: #f2f2f2;
+			font-size: 14.4px;
+			font-weight: 350;
+			background-color: color-mix(in srgb, var(--wiki-sidebar-background-color) var(--wiki-sidebar-background-opacity), transparent);
+			/* background: linear-gradient(#3f3f3f, #292929); */
+			border-bottom: 1px solid #99673a;
+			border-radius: 6px 6px 0 0;
+		}
+
+		#mw-panel .vector-menu-content {
+			background-color: color-mix(in srgb, var(--wiki-sidebar-background-color) var(--wiki-sidebar-background-opacity), transparent);
+			border-top: 0;
+			padding: 5px 8px;
+			border-radius: 0 0 6px 6px;
+		}
+
+		#mw-panel ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		#mw-panel li {
+			margin: 0;
+			padding: 0;
+		}
+
+		#mw-panel li a {
+			display: block;
+			padding: 4px 5px;
+			color: #e59344;
+			line-height: 1.35;
+		}
+
+		#mw-panel li a:hover {
+			background: #292929;
+			border-radius: 3px;
+		}
+
+		#content {
+			position: relative;
+			margin: 99.79px 24px 0 176px;
+			padding: 60px 24px 24px;
+			width: auto;
+			min-height: 100vh;
+			/* background: transparent; */
+		}
+
+		.content-wrapper {
+			min-height: 100vh;
+		}
+
+		#bodyContent,
+		#mw-content-text,
+		.mw-parser-output {
+			width: 100%;
+		}
+
+		#siteSub,
+		.mw-jump-link,
+		#firstHeading {
+			display: none;
+		}
+
+		#wikigg-sl-header,
+		#wikigg-sl-footer {
+			display: none;
+		}
+
+		#wikigg-satellite-notice {
+			margin: 0 0 14px;
+			padding: 8px 14px;
+			color: #e6e6e6;
+			background: #242424;
+			border: 1px solid #99673a;
+			border-left: 5px solid #fa9549;
+			border-radius: 4px;
+		}
+
+		#wikigg-satellite-notice h3 {
+			margin: 0 0 3px;
+			font-size: 14px;
+		}
+
+		#wikigg-satellite-notice p {
+			margin: 0;
+		}
+
+		#fp-container {
+			display: grid;
+			grid-template-areas: "a b" "c c" "d d";
+			grid-template-columns: minmax(0, 1fr) 520px;
+			gap: 14px;
+			width: 100%;
+		}
+
+		#fp-top {
+			grid-area: a;
+			min-width: 0;
+		}
+
+		#fp-flex {
+			grid-area: b;
+			min-width: 0;
+		}
+
+		#fp-nav {
+			grid-area: c;
+			min-width: 0;
+		}
+
+		#fp-bottom {
+			grid-area: d;
+			min-width: 0;
+		}
+
+		.fp-section {
+			display: flex;
+			flex-direction: column;
+			gap: 14px;
+		}
+
+		.fpbox {
+			width: 100%;
+			margin: 0;
+			overflow: hidden;
+			color: #e6e6e6;
+			background-color:
+				color-mix(in srgb, var(--wiki-content-dynamic-color) 10%, transparent);
+			/* border: 1px solid #99673a; */
+			border-radius: 8px;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+		}
+
+		.fpbox .body {
+			padding: 12px 16px;
+		}
+
+		.fpbox p {
+			line-height: 1.5;
+		}
+
+		.fpbox h2,
+		.fpbox h3 {
+			color: #f0f0f0;
+		}
+
+		.fpHeader {
+			position: relative;
+			font-size: 1.7em;
+			letter-spacing: .025em;
+			padding: 0 1em;
+			padding-top: 5px;
+			padding-bottom: 7px;
+			box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.25);
+			background-size: 0.6em, 0.6em, 1px 0.3em, auto;
+			border-radius: 0.7em 20px 0 0;
+			background: url(images/Corner_top_left.png) no-repeat top left border-box,
+				url(images/Bolt.png) no-repeat bottom left border-box,
+				url(images/Bolt.png) no-repeat bottom right border-box,
+				url(images/Middle.png) repeat-x center left border-box, linear-gradient(to bottom, #465461, #4F4136);
+
+			background-position:
+				-5px -2px,
+				bottom left,
+				bottom right,
+				center left,
+				0 0;
+
+			background-repeat:
+				no-repeat,
+				no-repeat,
+				no-repeat,
+				repeat-x,
+				no-repeat;
+
+			background-origin: border-box;
+		}
+
+		.fpHeader::before {
+			background: url(images/Texture.png);
+			opacity: 0.1;
+			content: "";
+			position: absolute;
+			z-index: 0;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-top-right-radius: 30px;
+			border-top-left-radius: 30px;
+		}
+
+		.fpHeaderText {
+			color: #f4f4f4;
+			font-family: 'Satisfontory_v1.5', "Noto Sans", Arial, sans-serif;
+			font-size: 23.8px;
+			/* font-weight: bold; */
+			background: none;
+			-webkit-text-fill-color: currentColor;
+		}
+
+		#fp-top>.fpbox:first-child {
+			min-height: 225px;
+		}
+
+		#fp-top>.fpbox:first-child .body {
+			padding: 18px 28px;
+		}
+
+		#fp-top>.fpbox:first-child p {
+			max-width: 1050px;
+			margin: 12px auto;
+			font-size: 15px;
+		}
+
+		.fplinks {
+			gap: 8px;
+		}
+
+		.fplink-outer {
+			padding: 4px;
+			min-width: 120px;
+		}
+
+		.fplink {
+			color: #e59344;
+			background: radial-gradient(#3a3a3a, #202020);
+			border: 3px double var(--wiki-content-dynamic-color--inverted);
+			border-radius: 7px;
+			box-shadow: inset 0 0 5px #000;
+			box-sizing: border-box;
+
+			width: 400px;
+			height: 42px;
+
+			display: table;
+			padding: 0;
+		}
+
+		.fplink-inner {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		.fplink a {
+			display: block;
+			width: 100%;
+			color: #e59344;
+			text-decoration: none;
+		}
+
+		.fplink:hover {
+			background: #333;
+			text-decoration: none;
+		}
+
+		.fplink img {
+			max-height: 90px;
+			object-fit: contain;
+		}
+
+		#fp-container ul {
+			margin-top: 6px;
+		}
+
+		#fp-container li {
+			margin-bottom: 4px;
+		}
+
+		#fp-container .mw-collapsible-content,
+		#fp-container .mw-collapsible {
+			display: block;
+		}
+
+		.mobilecollapsible {
+			display: block;
+		}
+
+		#fp-nav .fpbox {
+			overflow: visible;
+		}
+
+		#fp-nav .fpbox .body {
+			padding: 14px 18px;
+		}
+
+		#fp-nav .navbox {
+			margin: 5px 0;
+			background: #242424;
+			border: 1px solid #6f4d32;
+			color: #ddd;
+		}
+
+		#fp-nav {
+			background: #343434;
+			color: #f1f1f1;
+		}
+
+		.navbox-title {
+			background: #343434;
+			color: #f1f1f1;
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+		}
+
+		.nav-table {
+			width: 100%;
+		}
+
+		#fp-nav .navbox-group {
+			background: #2b2b2b;
+			color: #e59344;
+		}
+
+		#fp-nav .navbox-list {
+			padding: 5px;
+		}
+
+		.vector-menu-portal .vector-menu-heading {
+			text-align: center;
+			border-bottom: 1px solid var(--wiki-accent-color);
+			padding: 0.25em 0;
+			margin: 0px 0.25em;
+			font-size: 0.9em;
+		}
+
+		.vector-menu-portal .vector-menu-heading {
+			padding: 0.5rem 0.25rem 0 0.5rem;
+			margin: 0;
+			background: none;
+			color: var(--wiki-sidebar-heading-color);
+			font-family: var(--wiki-sidebar-heading-font-family);
+		}
+
+		.fake-expand {
+			display: inline-block;
+			margin: 0 0 8px;
+			padding: 5px 12px;
+			color: #ddd;
+			background: #303030;
+			border: 1px solid #777;
+			border-radius: 4px;
+			opacity: .75;
+			cursor: default;
+		}
+
+		#fp-social .body img {
+			transition: transform .15s ease;
+		}
+
+		#fp-social .body a:hover img {
+			transform: scale(1.08);
+		}
+
+		.mw-collapsible-toggle,
+		.mw-collapsible-toggle-default {
+			display: none;
+		}
+
+		#simpleSearch {
+			min-width: 5rem;
+			width: 20vw;
+			max-width: 20rem;
+			position: relative;
+			height: 100%;
+		}
+
+		#searchInput {
+			background-color: var(--wiki-content-background-color--secondary);
+			border-color: var(--wiki-content-border-color);
+			color: var(--wiki-content-text-color);
+			box-shadow: none;
+		}
+
+		.vector-search-box-input {
+			background-color: rgba(255, 255, 255, 0.5);
+			color: var(--color-emphasized, #101418);
+			width: 100%;
+			height: 2.15384615em;
+			box-sizing: border-box;
+			border: 1px solid var(--border-color-base, #a2a9b1);
+			border-radius: 2px;
+			padding: 5px 2.15384615em 5px 0.4em;
+			box-shadow: inset 0 0 0 1px var(--box-shadow-color-transparent, transparent);
+			font-family: inherit;
+			direction: ltr;
+			transition-property: border-color, box-shadow;
+			transition-duration: 250ms;
+		}
+
+		.searchButton {
+			background-color: transparent;
+			position: absolute;
+			top: 1px;
+			bottom: 1px;
+			right: 1px;
+			min-width: 28px;
+			width: 2.15384615em;
+			border: 0;
+			padding: 0;
+			cursor: pointer;
+			font-size: 0.8125em;
+			direction: ltr;
+			text-indent: -99999px;
+			white-space: nowrap;
+			overflow: hidden;
+			z-index: 1;
+			background: url("images/search.svg") center / 1.23076923em no-repeat;
+			opacity: 0.67;
+		}
+
+		#p-search .searchButton {
+			background-color: transparent;
+		}
+
+		input::file-selector-button,
+		input[type="button"],
+		input[type="submit"] {
+			background-color: var(--wiki-accent-color);
+			border-color: var(--wiki-accent-color);
+			color: var(--wiki-accent-label-color);
+		}
+
+		.vector-menu-portal .vector-menu-content li {
+			margin: 0;
+			padding: 0.25em 0;
+			font-size: 12px;
+			line-height: 1.125em;
+			word-wrap: break-word;
+			font-weight: bold;
+		}
+
+		.mw-footer {
+			margin-top: 1em;
+			margin-bottom: 1em;
+			margin-left: 176px;
+			margin-right: 24px;
+			border-top-width: 0;
+			padding: 1.25em;
+			padding-right: 24px;
+			padding-left: 24px;
+		}
+
+		.mw-body,
+		.mw-footer {
+			border-radius: 1.5em;
+		}
+
+		.mw-body {
+			margin: -1px 16px 0px 176px;
+			padding: 60px 24px 24px;
+		}
+
+		.mw-body,
+		.parsoid-body,
+		.mw-footer {
+			color: var(--wiki-content-text-color);
+			background-color: var(--wiki-content-background-color);
+			background-color:
+				color-mix(in srgb, var(--wiki-content-background-color) var(--wiki-content-background-opacity), transparent);
+			border: var(--wiki-content-border-width, 1px) solid var(--wiki-content-border-color);
+			margin-right: 1em;
+		}
+
+		.mw-footer ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		#footer-info li {
+			line-height: 1.4;
+		}
+
+		.mw-footer li {
+			color: var(--wiki-content-text-color);
+		}
+
+		.mw-footer li {
+			/* color: var(--color-base, #202122); */
+			margin: 0;
+			padding: 0.5em 0;
+			font-size: 0.75em;
+		}
+
+		.fpbox {
+			background-color: var(--wiki-content-dynamic-color--secondary);
+			background-color:
+				color-mix(in srgb, var(--wiki-content-dynamic-color) 10%, transparent);
+			box-shadow: 0 2px 5px color-mix(in srgb, var(--wiki-content-dynamic-color) 5%, transparent);
+			margin: 5px;
+			margin-bottom: 15px;
+			overflow: auto;
+			border-radius: 20px 20px 5px 5px;
+			width: calc(100% - 2px);
+			box-sizing: border-box;
+		}
+
+		.fpvideo {
+			overflow: hidden;
+		}
+
+		.embedvideo.mw-halign-right,
+		.embedvideo.mw-halign-left,
+		.embedvideo.mw-halign-none,
+		.embedvideo.mw-halign-center {
+			display: block;
+		}
+
+		.embedvideo.mw-halign-center {
+			/* display: table; */
+			margin: 0 auto;
+			border-collapse: collapse;
+			clear: none;
+			float: none;
+		}
+
+		#footer-icons {
+			float: right;
+		}
+
+		#footer-icons li {
+			float: left;
+			margin-left: 0.5em;
+			line-height: 2;
+			text-align: right;
+			width: 105px;
+		}
+
+		#footer #footer-icons a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 4px;
+			border-width: 1px;
+			border-style: solid;
+			box-sizing: border-box;
+			min-height: 44px;
+			border-color: #645c60;
+			background-color: #323337;
+		}
+
+		#catlinks {
+			text-align: left;
+			margin-top: 1em;
+			padding: 5px;
+			clear: both;
+		}
+
+		.catlinks,
+		ul#filetoc {
+			background: var(--wiki-content-background-color--secondary);
+			border: 1px solid var(--wiki-content-border-color);
+		}
+
+		.vector-body {
+			font-size: 0.875rem;
+			line-height: 1.6;
+		}
+
+		.catlinks ul {
+			display: inline;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.catlinks li:first-child {
+			border-left: 0;
+			padding-left: 0.25em;
+		}
+
+		.catlinks li {
+			display: inline-block;
+			line-height: 1.25em;
+			margin: 0.125em 0;
+			padding: 0 0.5em;
+		}
+
+		.navbar ul {
+			display: flex;
+			flex-direction: row;
+			list-style: none;
+			margin: 5px;
+			padding: 0;
+		}
+
+		.navbar li+li::before {
+			content: " · ";
+			margin: 0 4px;
+		}
+
+		.mw-inputbox-centered {
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+		}
+
+		form.mw-inputbox-form-inline {
+			display: flex;
+			justify-content: center;
+			column-gap: 4px;
+		}
+
+		input,
+		select {
+			background-color: var(--wiki-content-background-color--secondary);
+			border: 1px solid var(--wiki-content-border-color);
+			color: var(--wiki-content-text-color);
+		}
+
+		button,
+		input,
+		optgroup,
+		select,
+		textarea {
+			margin: 0;
+		}
+
+		input[type="hidden" i] {
+			display: none !important;
+		}
+
+		input:not([type="range" i], [type="checkbox" i], [type="radio" i]) {
+			overflow-clip-margin: 0px !important;
+			overflow: clip !important;
+		}
+
+		input[type="hidden" i] {
+			appearance: none;
+			/* background-color: initial; */
+			cursor: default;
+			padding: initial;
+			/* border: initial; */
+		}
+
+		.cdx-text-input {
+			position: relative;
+			box-sizing: border-box;
+			/* min-width: 256px; */
+			border-radius: 2px;
+			overflow: hidden;
+		}
+
+		.cdx-text-input__input:enabled {
+			background-color: var(--background-color-base, #fff);
+			color: var(--color-base, #202122);
+			border-color: var(--border-color-interactive, #72777d);
+			box-shadow: inset 0 0 0 1px var(--box-shadow-color-transparent, transparent);
+			transition-property: background-color, color, border-color, box-shadow;
+			transition-duration: .25s;
+		}
+
+		form.createbox:invalid .cdx-button {
+			background-color: var(--background-color-disabled, #dadde3) !important;
+			color: var(--color-inverted, #fff) !important;
+			border-color: var(--border-color-disabled, #c8ccd1) !important;
+			cursor: default !important;
+		}
+
+		.cdx-button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 4px;
+			box-sizing: border-box;
+			min-height: 32px;
+			max-width: 28rem;
+			margin: 0;
+			border-width: 1px;
+			border-style: solid;
+			border-radius: 2px;
+			padding-right: 11px;
+			padding-left: 11px;
+			font-family: inherit;
+			font-size: inherit;
+			font-weight: 700;
+			/* overflow: hidden; */
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			text-transform: none;
+			transition-property: background-color, color, border-color, box-shadow;
+			transition-duration: .1s;
+		}
+
+		#siteNotice {
+			font-size: 0.8em;
+			position: relative;
+			text-align: center;
+			margin: 0;
+		}
+
+		#wikigg-satellite-notice.wikigg-satellite-is-main-page {
+			font-size: 1.1em;
+		}
+
+		#wikigg-satellite-notice {
+			--wikisurvey-primary: #c90e61;
+			--wikisurvey-canvas--fallback: #000;
+			--wikisurvey-canvas: var(--wiki-content-dynamic-color--inverted, var(--wikisurvey-canvas--fallback));
+			--wikisurvey-text: #ddd;
+			--wikisurvey-link: #95f3ab;
+			--wikisurvey-front-size: 10em;
+			--wikisurvey-border:
+				color-mix(in srgb, var(--wikisurvey-canvas), var(--wikisurvey-primary) 50%);
+			--wikisurvey-background:
+				color-mix(in srgb, var(--wikisurvey-canvas), var(--wikisurvey-primary) 20%);
+			--wikisurvey-close-size: 2.4rem;
+			--wikisurvey-close-spacing: 1rem;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			gap: 0.4em;
+			border: 1px solid var(--wikisurvey-border);
+			border-radius: 0.3rem;
+			background: var(--wikisurvey-background);
+			text-align: left;
+			margin-bottom: 1.25em;
+			border-radius: 0.25em;
+			padding: 0.9em 2em 0.9em calc(var(--wikisurvey-front-size) + 0.25em);
+			box-shadow: 0 0.25rem 0.35rem -0.25rem rgba(0, 0, 0, 0.1);
+			font-size: 0.9em;
+			background-image: url(images/back.png), url(images/front.png);
+			background-position: center left;
+			background-repeat: no-repeat;
+			background-size: cover, var(--wikisurvey-front-size);
+		}
+
+		#wikigg-satellite-notice a,
+		#wikigg-satellite-notice a:link,
+		#wikigg-satellite-notice a:hover,
+		#wikigg-satellite-notice a:focus,
+		#wikigg-satellite-notice a:visited {
+			color: var(--wikisurvey-link);
+		}
+	</style>
+</head>
+
+<body class="">
+	<header id="wgg-netbar">
+		<div class="wgg-netbar__left">
+			<div class="wgg-netbar__logo">
+				<a href="https://satisfactory.wiki.gg/" aria-label="wiki.gg">
+					<img height=25 alt="wiki.gg logo" src="images/Network_header_logo.svg">
+				</a>
+			</div>
+			<a class="wgg-netbar__deals-link" href="https://www.indiedeals.gg" target="_blank" rel="noopener"
+				title="Indie game deals">
+				<img class="wgg-netbar__deals-link__icon" src="images/Network_indiedeals_logo.png" alt="">
+				<span class="wgg-netbar__deals-link__label" style="color: #fff; font-family: 'Nunito';">Indie game
+					deals</span>
+			</a>
+		</div>
+
+		<nav class="wgg-netbar__user-links" aria-label="Personal tools">
+			<div id="p-personal" class="mw-portlet mw-portlet-personal">
+
+				<ul>
+					<li id="pt-createaccount" class="mw-list-item wgg-netbar__desktop-only"><a data-mw="interface"
+							class=""
+							href="https://satisfactory.wiki.gg/wiki/Special:CreateAccount?returnto=Satisfactory+Wiki"
+							title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create
+								account</span></a>
+					</li>
+					<li id="pt-login" class="mw-list-item wgg-netbar__desktop-only"><a data-mw="interface" class=""
+							href="https://satisfactory.wiki.gg/wiki/Special:UserLogin?returnto=Satisfactory+Wiki"
+							title="You are encouraged to log in; however, it is not mandatory [alt-o]"
+							accesskey="o"><span>Log in</span></a>
+					</li>
+				</ul>
+
+			</div>
+		</nav>
+
+	</header>
+
+	<div class="content-wrapper">
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+			<div id="mw-head">
+				<div id="left-navigation">
+
+					<div id="p-namespaces"
+						class="mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy vectorTabs vector-menu"
+						aria-labelledby="p-namespaces-label">
+						<div class="vector-menu-content body">
+
+							<ul class="vector-menu-content-list menu">
+
+								<li id="ca-nstab-main" class="selected mw-list-item"><a
+										href="https://satisfactory.wiki.gg/" title="View the content page [alt-c]"
+										accesskey="c"><span>Main page</span></a>
+								</li>
+								<li id="ca-talk" class="mw-list-item"><a
+										href="https://satisfactory.wiki.gg/wiki/Talk:Satisfactory_Wiki" rel="discussion"
+										title="Discussion about the content page [alt-t]"
+										accesskey="t"><span>Discussion</span></a></li>
+							</ul>
+
+						</div>
+					</div>
+
+				</div>
+				<div id="right-navigation">
+
+					<div id="p-views"
+						class="mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy vectorTabs vector-menu"
+						aria-labelledby="p-views-label">
+						<h3 id="p-views-label" class="vector-menu-heading ">
+							<span class="vector-menu-heading-label">Views</span>
+						</h3>
+						<div class="vector-menu-content body">
+
+							<ul class="vector-menu-content-list menu">
+
+								<li id="ca-view" class="selected mw-list-item collapsible" style="display: block;"><a
+										href="https://satisfactory.wiki.gg/"><span>Read</span></a></li>
+								<li id="ca-viewsource" class="mw-list-item collapsible" style="display: block;"><a
+										href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki?action=edit" title="This page is protected.
+You can view its source [alt-e]" accesskey="e"><span>View source</span></a></li>
+								<li id="ca-history" class="mw-list-item collapsible" style="display: block;"><a
+										href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki?action=history"
+										title="Past revisions of this page [alt-h]" accesskey="h"><span>View
+											history</span></a></li>
+							</ul>
+
+						</div>
+					</div>
+
+
+					<div id="p-search" role="search"
+						class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+						<h3>Search</h3>
+						<form action="https://satisfactory.wiki.gg/wiki/Special:Search" id="searchform"
+							class="vector-search-box-form">
+							<div id="simpleSearch" class="vector-search-box-inner" data-search-loc="header-navigation">
+								<input class="vector-search-box-input" type="search" name="search"
+									placeholder="Search Satisfactory Wiki" aria-label="Search Satisfactory Wiki"
+									autocapitalize="sentences" spellcheck="false"
+									title="Search Satisfactory Wiki [alt-f]" accesskey="f" id="searchInput">
+								<input id="mw-searchButton" class="searchButton mw-fallbackSearchButton" type="submit"
+									name="fulltext" title="Search the pages for this text" value="Search">
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+
+			<div id="mw-panel">
+				<div id="p-logo" role="banner">
+					<a class="mw-wiki-logo" href="https://satisfactory.wiki.gg/" title="Visit the main page"></a>
+				</div>
+
+				<div id="p-Navigation" class="mw-portlet mw-portlet-Navigation vector-menu-portal portal vector-menu"
+					aria-labelledby="p-Navigation-label">
+					<h3 id="p-Navigation-label" class="vector-menu-heading ">
+						<span class="vector-menu-heading-label">Navigation</span>
+					</h3>
+					<div class="vector-menu-content body">
+
+						<ul class="vector-menu-content-list menu">
+
+							<li id="n-mainpage-description" class="mw-list-item"><a href="https://satisfactory.wiki.gg/"
+									title="Visit the main page [alt-z]" accesskey="z"><span>Main page</span></a></li>
+							<li id="n-portal" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki:Community_portal"
+									title="About the project, what you can do, where to find things"><span>Community
+										portal</span></a></li>
+							<li id="n-recentchanges" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Special:RecentChanges"
+									title="A list of recent changes in the wiki [alt-r]" accesskey="r"><span>Recent
+										changes</span></a></li>
+							<li id="n-randompage" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Special:Random"
+									title="Load a random page [alt-x]" accesskey="x"><span>Random page</span></a></li>
+							<li id="n-Admin-noticeboard" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki:Admin_noticeboard"><span>Admin
+										noticeboard</span></a>
+							</li>
+							<li id="n-Wiki-rules" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki:Rules"><span>Wiki
+										rules</span></a></li>
+							<li id="n-Style-guide" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki:Style_guide"><span>Style
+										guide</span></a></li>
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div id="p-Useful_pages"
+					class="mw-portlet mw-portlet-Useful_pages vector-menu-portal portal vector-menu"
+					aria-labelledby="p-Useful_pages-label">
+					<h3 id="p-Useful_pages-label" class="vector-menu-heading ">
+						<span class="vector-menu-heading-label">Useful pages</span>
+					</h3>
+					<div class="vector-menu-content body">
+
+						<ul class="vector-menu-content-list menu">
+
+							<li id="n-Buildings" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Category:Buildings"><span>Buildings</span></a>
+							</li>
+							<li id="n-Items" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Category:Items"><span>Items</span></a>
+							</li>
+							<li id="n-Fluids" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Category:Fluids"><span>Fluids</span></a>
+							</li>
+							<li id="n-Milestones" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Milestones"><span>Milestones</span></a></li>
+							<li id="n-MAM" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/MAM"><span>MAM</span></a></li>
+							<li id="n-AWESOME-Sink" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/AWESOME_Sink"><span>AWESOME
+										Sink</span></a></li>
+							<li id="n-Space-Elevator" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Space_Elevator"><span>Space
+										Elevator</span></a></li>
+							<li id="n-Power" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Power"><span>Power</span></a></li>
+							<li id="n-Future-content" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Future_content"><span>Future
+										content</span></a></li>
+							<li id="n-Community-tools" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Online_tools"><span>Community
+										tools</span></a></li>
+						</ul>
+
+					</div>
+				</div>
+
+				<div id="p-Satisfactory_links"
+					class="mw-portlet mw-portlet-Satisfactory_links vector-menu-portal portal vector-menu"
+					aria-labelledby="p-Satisfactory_links-label">
+					<h3 id="p-Satisfactory_links-label" class="vector-menu-heading ">
+						<span class="vector-menu-heading-label">Satisfactory links</span>
+					</h3>
+					<div class="vector-menu-content body">
+
+						<ul class="vector-menu-content-list menu">
+
+							<li id="n-Official-website" class="mw-list-item"><a href="https://www.satisfactorygame.com/"
+									rel="nofollow"><span>Official website</span></a></li>
+							<li id="n-Q&amp;A-site" class="mw-list-item"><a
+									href="https://questions.satisfactorygame.com/" rel="nofollow"><span>Q&amp;A
+										site</span></a></li>
+							<li id="n-Official-merch" class="mw-list-item"><a href="https://lizarddoggo.com/"
+									rel="nofollow"><span>Official merch</span></a></li>
+							<li id="n-Steam" class="mw-list-item"><a
+									href="https://store.steampowered.com/app/526870/Satisfactory/"
+									rel="nofollow"><span>Steam</span></a></li>
+							<li id="n-Epic-Games-Store" class="mw-list-item"><a
+									href="https://www.epicgames.com/store/en-US/product/satisfactory/home"
+									rel="nofollow"><span>Epic Games Store</span></a></li>
+							<li id="n-Humble-Bundle" class="mw-list-item"><a
+									href="https://www.humblebundle.com/store/satisfactory" rel="nofollow"><span>Humble
+										Bundle</span></a></li>
+							<li id="n-Xbox" class="mw-list-item"><a
+									href="https://www.xbox.com/en-US/games/store/satisfactory/9NPR2CG6S95Q"
+									rel="nofollow"><span>Xbox</span></a></li>
+							<li id="n-PlayStation" class="mw-list-item"><a
+									href="https://store.playstation.com/en-us/product/UP4664-PPSA16634_00-SATISFACTORYGAME"
+									rel="nofollow"><span>PlayStation</span></a></li>
+						</ul>
+
+					</div>
+				</div>
+
+				<div id="p-tb" class="mw-portlet mw-portlet-tb vector-menu-portal portal vector-menu"
+					aria-labelledby="p-tb-label">
+					<h3 id="p-tb-label" class="vector-menu-heading ">
+						<span class="vector-menu-heading-label">Tools</span>
+					</h3>
+					<div class="vector-menu-content body">
+
+						<ul class="vector-menu-content-list menu">
+
+							<li id="t-whatlinkshere" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Special:WhatLinksHere/Satisfactory_Wiki"
+									title="A list of all wiki pages that link here [alt-j]" accesskey="j"><span>What
+										links here</span></a></li>
+							<li id="t-recentchangeslinked" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Special:RecentChangesLinked/Satisfactory_Wiki"
+									rel="nofollow" title="Recent changes in pages linked from this page"><span>Related
+										changes</span></a></li>
+							<li id="t-newpage" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Special:NewPage" accesskey="]"><span>New
+										page</span></a></li>
+							<li id="t-specialpages" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Special:SpecialPages"
+									title="A list of all special pages [alt-q]" accesskey="q"><span>Special
+										pages</span></a></li>
+							<li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate"
+									title="Printable version of this page [alt-p]" accesskey="p"><span>Printable
+										version</span></a></li>
+							<li id="t-info" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki?action=info"
+									title="More information about this page"><span>Page information</span></a></li>
+							<li id="t-cargopagevalueslink" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki?action=dbdata"><span>Database
+										data</span></a></li>
+							<li id="t-cite" class="mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Special:CiteThisPage?page=Satisfactory_Wiki&amp;id=56208&amp;wpFormIdentifier=titleform"
+									title="Information on how to cite this page"><span>Cite this page</span></a></li>
+							<li class="mw-list-item mw-list-item-js" id="t-collapsible-toggle-all"><a href="#"
+									title="Expand all collapsible elements on the current page" role="button"
+									aria-expanded="false"><span>Expand all</span></a></li>
+						</ul>
+
+					</div>
+				</div>
+
+
+				<div id="p-lang" class="mw-portlet mw-portlet-lang vector-menu-portal portal vector-menu"
+					aria-labelledby="p-lang-label">
+					<h3 id="p-lang-label" class="vector-menu-heading ">
+						<span class="vector-menu-heading-label">In other languages</span>
+					</h3>
+					<div class="vector-menu-content body">
+
+						<ul class="vector-menu-content-list menu">
+
+							<li class="interlanguage-link interwiki-de mw-list-item"><a
+									href="https://satisfactory.wiki.gg/de/wiki/" title="German" lang="de" hreflang="de"
+									data-title="" data-language-autonym="Deutsch" data-language-local-name="German"
+									class="interlanguage-link-target"><span>Deutsch</span></a></li>
+							<li class="interlanguage-link interwiki-fr mw-list-item"><a
+									href="https://satisfactory.wiki.gg/fr/wiki/" title="French" lang="fr" hreflang="fr"
+									data-title="" data-language-autonym="Français" data-language-local-name="French"
+									class="interlanguage-link-target"><span>Français</span></a></li>
+							<li class="interlanguage-link interwiki-ru mw-list-item"><a
+									href="https://satisfactory.wiki.gg/ru/wiki/" title="Russian" lang="ru" hreflang="ru"
+									data-title="" data-language-autonym="Русский" data-language-local-name="Russian"
+									class="interlanguage-link-target"><span>Русский</span></a></li>
+							<li class="interlanguage-link interwiki-pt mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki/pt"
+									title="Satisfactory Wiki/pt – Portuguese" lang="pt" hreflang="pt"
+									data-title="Satisfactory Wiki/pt" data-language-autonym="Português"
+									data-language-local-name="Portuguese"
+									class="interlanguage-link-target"><span>Português</span></a></li>
+							<li class="interlanguage-link interwiki-it mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki/it"
+									title="Satisfactory Wiki/it – Italian" lang="it" hreflang="it"
+									data-title="Satisfactory Wiki/it" data-language-autonym="Italiano"
+									data-language-local-name="Italian"
+									class="interlanguage-link-target"><span>Italiano</span></a></li>
+							<li class="interlanguage-link interwiki-zh mw-list-item"><a
+									href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki/zh"
+									title="Satisfactory Wiki/zh – Chinese" lang="zh" hreflang="zh"
+									data-title="Satisfactory Wiki/zh" data-language-autonym="中文"
+									data-language-local-name="Chinese"
+									class="interlanguage-link-target"><span>中文</span></a></li>
+						</ul>
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<div id="content" class="mw-body" role="main">
+			<aside id="wikigg-sl-header" data-mw="WggShowcaseLayout">
+				<div class="wikigg-showcase__unit wikigg-showcase__reserved--lb" data-wgg-unit-type="internal"><a
+						target="_blank"
+						href="https://app.wiki.gg/showcase/go?utm_campaign=ccm_desktop_oct_released_game_test&amp;utm_medium=bannerheader&amp;utm_source=satisfactory.wiki.gg&amp;location=android"><img
+							src="https://app.wiki.gg/public/1e3To1Zvsx678sQMi0gJm-LJ4GaSnF6We.jpeg"></a></div>
+			</aside>
+
+			<div class="content-body">
+				<main>
+					<a id="top"></a>
+					<div id="siteNotice">
+						<aside id="wikigg-satellite-notice" class="wikigg-network-notice wikigg-satellite-is-main-page"
+							data-nosnippet="1" data-campaign="202602">
+							<h3>wiki.gg SATELLITE #4 accepting responses:</h3>
+							<p>Help improve wiki.gg by <a class="external text" href="https://wiki.gg/go/sat04">filling
+									out a survey</a>!
+							</p>
+						</aside>
+					</div>
+					<div class="mw-indicators">
+					</div>
+					<h1 id="firstHeading" class="firstHeading mw-first-heading" style="display: none"><span
+							class="mw-page-title-main">Satisfactory Wiki</span></h1>
+					<div id="bodyContent" class="vector-body">
+						<div id="siteSub" class="noprint">From Satisfactory Wiki</div>
+						<div id="contentSub"></div>
+						<div id="contentSub2"></div>
+
+						<div id="jump-to-nav"></div>
+						<a class="mw-jump-link" href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki#mw-head">Jump
+							to navigation</a>
+						<a class="mw-jump-link"
+							href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki#searchInput">Jump to search</a>
+						<div id="mw-content-text" class="mw-body-content">
+							<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr">
+								<div id="fp-container">
+									<div id="fp-top" class="fp-section">
+										<div class="fpbox" style="text-align: center;">
+											<div class="welcome">
+												<div class="fpHeader">
+													<div style="float: right; margin:5px;"></div><span
+														class="fpHeaderText"
+														style="font-size: 35.7px; font-weight: bold;">Welcome&nbsp;to
+														the&nbsp;official
+														Satisfactory Wiki</span>
+												</div>
+											</div>
+											<div style="padding:0 5px 5px 5px">
+												<div>the <i>Satisfactory</i> guide and information source written and
+													maintained by the community.</div>
+												<p>We are currently maintaining <a
+														href="https://satisfactory.wiki.gg/wiki/Special:Statistics"
+														title="Special:Statistics">9,467 pages (865 articles)</a>.
+												</p>
+												<p>Please feel free to contribute by creating new articles or expanding
+													existing ones.
+												</p>
+												<p>Also check out the wiki in other languages:<br>
+													<a href="https://satisfactory.wiki.gg/de/wiki/" class="extiw"
+														title="de:">Deutsch</a> &nbsp;•&nbsp; <a
+														href="https://satisfactory.wiki.gg/fr/wiki/" class="extiw"
+														title="fr:">Français</a> &nbsp;•&nbsp; <a
+														href="https://satisfactory.wiki.gg/ru/wiki/" class="extiw"
+														title="ru:">Русский</a><br>
+													<a href="https://satisfactory.wiki.gg/wiki/Category:Translation_projects"
+														title="Category:Translation projects">other translation
+														projects</a>
+												</p>
+											</div>
+										</div>
+										<div class="fpbox mobilecollapsible" style="text-align: center;">
+											<div class="fpHeader">
+												<div style="float: right; margin:5px;"></div><span
+													class="fpHeaderText">About Satisfactory</span>
+											</div>
+											<div class="body" style="text-align: left; padding:0 5px 5px 5px;">
+												<p><a href="https://satisfactory.wiki.gg/wiki/Satisfactory"
+														title="Satisfactory">Satisfactory</a> is
+													a game from <a
+														href="https://satisfactory.wiki.gg/wiki/Coffee_Stain_Studios"
+														title="Coffee Stain Studios">Coffee Stain Studios</a>, the
+													creators of <a href="https://en.wikipedia.org/wiki/Goat_Simulator"
+														class="extiw" title="wikipedia:Goat Simulator">Goat
+														Simulator</a> and the <a rel="nofollow" class="external text"
+														href="https://sanctum.gamepedia.com">Sanctum</a> series.
+													Satisfactory is a game of factory management and planet
+													exploitation. As a pioneer working for <a
+														href="https://satisfactory.wiki.gg/wiki/FICSIT_Inc."
+														title="FICSIT Inc.">FICSIT Inc.</a>, you are dropped onto an
+													alien planet with a handful of tools and must harvest the planet's
+													natural resources to construct increasingly complex factories for
+													automating all your resources needs. After you are set up, it will
+													be time to build the <a
+														href="https://satisfactory.wiki.gg/wiki/Space_Elevator"
+														title="Space Elevator">Space Elevator</a> and begin Project
+													Assembly, supplying FICSIT with increasingly numerous and complex
+													components for their unknown purposes.
+												</p>
+												<p>The main focus of the game lies in constructing <a
+														href="https://satisfactory.wiki.gg/wiki/Buildings"
+														title="Buildings">buildings</a> and
+													linking them together with <a
+														href="https://satisfactory.wiki.gg/wiki/Conveyor_Belts"
+														title="Conveyor Belts">Conveyor Belts</a> so that your factory
+													can handle the entire process of item construction for you,
+													including mining, transport, delivery, and generating <a
+														href="https://satisfactory.wiki.gg/wiki/Power"
+														title="Power">power</a> to keep itself
+													running. More advanced pioneers will precisely adjust their
+													buildings' <a href="https://satisfactory.wiki.gg/wiki/Clock_speed"
+														title="Clock speed">clock
+														speed</a> to maximize efficiency.
+												</p>
+											</div>
+										</div>
+										<div class="fpbox mobilecollapsible" style="text-align: center;">
+											<div class="fpHeader">
+												<div style="float: right; margin:5px;"></div><span
+													class="fpHeaderText">Features</span>
+											</div>
+											<div class="body" style="text-align: left; padding:0 5px 5px 5px">
+												<ul>
+													<li>A variety of item and fluid logistics including <a
+															href="https://satisfactory.wiki.gg/wiki/Conveyor_Belts"
+															title="Conveyor Belts">Conveyor
+															Belts</a>, <a
+															href="https://satisfactory.wiki.gg/wiki/Conveyor_Lift"
+															class="mw-redirect" title="Conveyor Lift">Lifts</a>, <a
+															href="https://satisfactory.wiki.gg/wiki/Pipeline"
+															class="mw-redirect" title="Pipeline">Pipes</a> and more; all
+														for transporting resources, components, fluids or yourself
+														around.</li>
+													<li><a href="https://satisfactory.wiki.gg/wiki/Buildings"
+															title="Buildings">Buildings</a> for
+														automated production of items. Hunt down <a
+															href="https://satisfactory.wiki.gg/wiki/Power_Slug"
+															title="Power Slug">Power Slugs</a>
+														and <a href="https://satisfactory.wiki.gg/wiki/Somersloop"
+															title="Somersloop">Somersloops</a> to improve their <a
+															href="https://satisfactory.wiki.gg/wiki/Clock_speed"
+															title="Clock speed">performance</a>.</li>
+													<li>A vast alien <a href="https://satisfactory.wiki.gg/wiki/World"
+															title="World">world</a> to
+														explore and exploit, featuring beautiful vistas and curious <a
+															href="https://satisfactory.wiki.gg/wiki/Creatures"
+															title="Creatures">creatures</a>,
+														including the community favorite <a
+															href="https://satisfactory.wiki.gg/wiki/Lizard_Doggo"
+															title="Lizard Doggo">Lizard Doggo</a>.</li>
+													<li><a href="https://satisfactory.wiki.gg/wiki/Vehicles"
+															title="Vehicles">Vehicles</a>,
+														including <a href="https://satisfactory.wiki.gg/wiki/Truck"
+															title="Truck">trucks</a> and <a
+															href="https://satisfactory.wiki.gg/wiki/Electric_Locomotive"
+															title="Electric Locomotive">trains</a> for transporting
+														yourself and large quantities of resources over great distances.
+													</li>
+													<li>A <a href="https://satisfactory.wiki.gg/wiki/Story"
+															title="Story">story</a> to uncover -
+														what is the 'Save the Day' program, and why is FICSIT counting
+														on you?</li>
+													<li><a href="https://satisfactory.wiki.gg/wiki/Arachnophobia_Mode"
+															class="mw-redirect" title="Arachnophobia Mode">Arachnophobia
+															Mode</a>, to turn
+														<a href="https://satisfactory.wiki.gg/wiki/Stinger"
+															title="Stinger">scary spiders</a> into
+														equally terrifying cat abominations.
+													</li>
+													<li>No base defense.</li>
+												</ul>
+											</div>
+										</div>
+										<div class="fpbox mobilecollapsible" id="fproles" style="text-align: center;">
+											<div class="fpHeader">
+												<div style="float: right; margin:5px;"></div><span
+													class="fpHeaderText">Featured Articles</span>
+											</div>
+											<div class="body fplinks">
+												<div
+													style="display:inline-block; margin: 2px; max-width: 100px; text-align:center; vertical-align: top;">
+													<a href="https://satisfactory.wiki.gg/wiki/MAM" title="MAM"><img
+															alt="MAM" src="images/100px-MAM.png" decoding="async"
+															loading="lazy" width="100" height="100"
+															data-file-width="512" data-file-height="512"></a><br><a
+														href="https://satisfactory.wiki.gg/wiki/MAM" title="MAM">MAM</a>
+												</div>
+												<div
+													style="display:inline-block; margin: 2px; max-width: 100px; text-align:center; vertical-align: top;">
+													<a href="https://satisfactory.wiki.gg/wiki/Coal-Powered_Generator"
+														title="Coal-Powered Generator"><img alt="Coal-Powered Generator"
+															src="images/100px-Coal-Powered_Generator.png"
+															decoding="async" loading="lazy" width="100" height="100"
+															data-file-width="512" data-file-height="512"></a><br><a
+														href="https://satisfactory.wiki.gg/wiki/Coal-Powered_Generator"
+														title="Coal-Powered Generator">Coal-Powered Generator</a>
+												</div>
+												<div
+													style="display:inline-block; margin: 2px; max-width: 100px; text-align:center; vertical-align: top;">
+													<a href="https://satisfactory.wiki.gg/wiki/Hard_Drive"
+														title="Hard Drive"><img alt="Hard Drive"
+															src="images/100px-Hard_Drive.png" decoding="async"
+															loading="lazy" width="100" height="100"
+															data-file-width="256" data-file-height="256"></a><br><a
+														href="https://satisfactory.wiki.gg/wiki/Hard_Drive"
+														title="Hard Drive">Hard Drive</a>
+												</div>
+												<div
+													style="display:inline-block; margin: 2px; max-width: 100px; text-align:center; vertical-align: top;">
+													<a href="https://satisfactory.wiki.gg/wiki/Lizard_Doggo"
+														title="Lizard Doggo"><img alt="Lizard Doggo"
+															src="images/100px-Lizard_Doggo.png" decoding="async"
+															loading="lazy" width="100" height="100"
+															data-file-width="1200" data-file-height="1200"></a><br><a
+														href="https://satisfactory.wiki.gg/wiki/Lizard_Doggo"
+														title="Lizard Doggo">Lizard Doggo</a>
+												</div>
+												<div
+													style="display:inline-block; margin: 2px; max-width: 100px; text-align:center; vertical-align: top;">
+													<a href="https://satisfactory.wiki.gg/wiki/Power" title="Power"><img
+															alt="Power" src="images/100px-Power_Line.png"
+															decoding="async" loading="lazy" width="100" height="100"
+															data-file-width="1073" data-file-height="1073"></a><br><a
+														href="https://satisfactory.wiki.gg/wiki/Power"
+														title="Power">Power</a>
+												</div>
+												<div
+													style="display:inline-block; margin: 2px; max-width: 100px; text-align:center; vertical-align: top;">
+													<a href="https://satisfactory.wiki.gg/wiki/Space_Elevator"
+														title="Space Elevator"><img alt="Space Elevator"
+															src="images/100px-Space_Elevator.png" decoding="async"
+															loading="lazy" width="100" height="100"
+															data-file-width="512" data-file-height="512"></a><br><a
+														href="https://satisfactory.wiki.gg/wiki/Space_Elevator"
+														title="Space Elevator">Space
+														Elevator</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="fp-flex" class="fp-section">
+										<div class="fpbox mobilecollapsible" id="fpguides"
+											style="text-align:center; height: 100%;">
+											<div class="fpHeader">
+												<div style="float: right; margin:5px;"></div><span
+													class="fpHeaderText">Updates</span>
+											</div>
+											<div class="body"
+												style="text-align:left; display:inline-block; margin:auto;">
+												<table>
+													<tbody>
+														<tr>
+															<th colspan="2">
+																<div class="center">
+																	<div class="floatnone"><a
+																			href="https://satisfactory.wiki.gg/wiki/Patch_1.2.2.2"
+																			title="Patch 1.2.2.2"><img
+																				alt="Update1.2 Sign Logo.png"
+																				src="images/300px-Update1.2_Sign_Logo.png"
+																				decoding="async" loading="lazy"
+																				width="300" height="78"
+																				data-file-width="1200"
+																				data-file-height="312"></a></div>
+																</div>
+															</th>
+														</tr>
+														<tr>
+															<td style="text-align:right;"><b>Major update</b>:</td>
+															<td><a href="https://satisfactory.wiki.gg/wiki/Patch_1.2.2.2"
+																	title="Patch 1.2.2.2">1.2
+																	release</a> (released 115 days ago)
+															</td>
+														</tr>
+														<tr>
+															<td style="text-align:right;"><b>Stable</b>:</td>
+															<td><a href="https://satisfactory.wiki.gg/wiki/Patch_1.2.4.0"
+																	title="Patch 1.2.4.0">1.2.4.0</a> (released 45 days
+																ago)
+															</td>
+														</tr>
+														<tr>
+															<td style="text-align:right;"><b>Experimental</b>:</td>
+															<td><a href="https://satisfactory.wiki.gg/wiki/Patch_1.2.4.0"
+																	title="Patch 1.2.4.0">1.2.4.0</a> (released 45 days
+																ago)
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div><a href="https://satisfactory.wiki.gg/wiki/Category:Patch_notes"
+													title="Category:Patch notes">Version history</a> • <a
+													href="https://satisfactory.wiki.gg/wiki/Future_content"
+													title="Future content">Future
+													content</a></div>
+										</div>
+										<div class="fpbox mobilecollapsible" id="fpvideos"
+											style="text-align: center; height: 100%;">
+											<div class="fpHeader">
+												<div style="float: right; margin:5px;"></div><span
+													class="fpHeaderText">Featured Video</span>
+											</div>
+											<div class="body fpvideos">
+												<div class="fpvideo">
+													<figure class="embedvideo mw-halign-center" data-service="youtube"
+														data-mw-iframeconfig="{&quot;width&quot;:480,&quot;height&quot;:270,&quot;src&quot;:&quot;https://www.youtube-nocookie.com/embed/aoHCYhlYjlc?autoplay=1&quot;}"
+														style="width:480px">
+														<div class="embedvideo-wrapper" style="height:270px">
+															<div class="embedvideo-consent"
+																data-show-privacy-notice="1">
+																<picture class="embedvideo-thumbnail"><img
+																		src="https://i.ytimg.com/vi/aoHCYhlYjlc/hqdefault.jpg"
+																		loading="lazy"
+																		class="embedvideo-thumbnail__image"></picture>
+																<div class="embedvideo-overlay">
+																	<div class="embedvideo-loader" role="button">
+																		<div class="embedvideo-loader__title">
+																			Satisfactory 1.2 Launch Trailer</div>
+																		<div class="embedvideo-loader__fakeButton">Load
+																			video</div>
+																		<div class="embedvideo-loader__footer">
+																			<div class="embedvideo-loader__service">
+																				YouTube</div>
+																		</div>
+																	</div>
+																	<div class="embedvideo-privacyNotice hidden">
+																		<div class="embedvideo-privacyNotice__content">
+																			YouTube might collect personal data. <a
+																				href="https://www.youtube.com/howyoutubeworks/user-settings/privacy/"
+																				rel="nofollow,noopener" target="_blank"
+																				class="embedvideo-privacyNotice__link">Privacy
+																				Policy</a></div>
+																		<div class="embedvideo-privacyNotice__buttons">
+																			<button
+																				class="embedvideo-privacyNotice__continue">Continue</button>
+																			<button
+																				class="embedvideo-privacyNotice__dismiss">Dismiss</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+														</div>
+													</figure>
+												</div>
+											</div>
+										</div>
+										<div class="fpbox" id="fp-social"
+											style="text-align: center; height: max-content; height: 100%;">
+											<div class="fpHeader">
+												<div style="float: right; margin:5px;"></div><span
+													class="fpHeaderText">Social Media</span>
+											</div>
+											<div
+												style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+												<div class="body"
+													style="display:flex; flex-wrap:wrap; gap:1em; justify-content:center; align-items:center;">
+													<p><a href="https://www.satisfactorygame.com/" rel="nofollow"><img
+																alt="Official Website"
+																src="images/48px-Satisfactory_logo_full_color_square.png"
+																decoding="async" loading="lazy" width="48" height="48"
+																data-file-width="1024" data-file-height="1024"></a>
+													</p>
+													<p><a href="https://lizarddoggo.com/" rel="nofollow"><img
+																alt="Official Merch" src="images/48px-Lizard_Doggo.png"
+																decoding="async" loading="lazy" width="48" height="48"
+																data-file-width="1200" data-file-height="1200"></a>
+													</p>
+													<p><a href="https://store.steampowered.com/app/526870/Satisfactory/"
+															rel="nofollow"><img alt="Steam" src="images/Steam.svg"
+																decoding="async" loading="lazy" width="48" height="48"
+																data-file-width="512" data-file-height="512"></a>
+													</p>
+													<p><a href="https://www.epicgames.com/store/en-US/product/satisfactory/home"
+															rel="nofollow"><img alt="Epic Games"
+																src="images/Epic_Games.svg" decoding="async"
+																loading="lazy" width="48" height="56"
+																data-file-width="647" data-file-height="751"></a>
+													</p>
+													<p><a href="https://www.humblebundle.com/store/satisfactory"
+															rel="nofollow"><img alt="Humble Bundle"
+																src="images/Humble.svg" decoding="async" loading="lazy"
+																width="48" height="48" data-file-width="201"
+																data-file-height="199"></a>
+													</p>
+												</div>
+												<hr style="width: 100%;">
+												<div class="body"
+													style="display:inline-flex; flex-wrap:wrap; gap:1em; justify-content:center; align-items:center;">
+													<p><a href="https://www.youtube.com/CoffeeStainStudios"
+															rel="nofollow"><img alt="YouTube" src="images/YouTube.svg"
+																decoding="async" loading="lazy" width="48" height="33"
+																data-file-width="159" data-file-height="110"></a>
+													</p>
+													<p><a href="https://www.twitch.tv/coffeestainstudiosdevs"
+															rel="nofollow"><img alt="Twitch" src="images/Twitch.svg"
+																decoding="async" loading="lazy" width="44" height="51"
+																data-file-width="512" data-file-height="597"></a>
+													</p>
+													<p><a href="https://discord.gg/satisfactory" rel="nofollow"><img
+																alt="Discord" src="images/Discord.svg" decoding="async"
+																loading="lazy" width="48" height="37"
+																data-file-width="180" data-file-height="138"></a>
+													</p>
+													<p><a href="https://www.facebook.com/SatisfactoryGame/"
+															rel="nofollow"><img alt="Facebook" src="images/Facebook.svg"
+																decoding="async" loading="lazy" width="48" height="48"
+																data-file-width="512" data-file-height="512"></a>
+													</p>
+												</div>
+												<div class="body"
+													style="display:inline-flex; flex-wrap:wrap; gap:1em; justify-content:center; align-items:center;">
+													<p><a href="https://www.instagram.com/coffee_stain_studios/"
+															rel="nofollow"><img alt="Instagram"
+																src="images/Instagram.svg" decoding="async"
+																loading="lazy" width="48" height="48"
+																data-file-width="132" data-file-height="132"></a>
+													</p>
+													<p><a href="https://www.reddit.com/r/SatisfactoryGame/"
+															rel="nofollow"><img alt="Reddit" src="images/Reddit.svg"
+																decoding="async" loading="lazy" width="48" height="48"
+																data-file-width="256" data-file-height="256"></a>
+													</p>
+													<p><a href="https://twitter.com/SatisfactoryAF/" rel="nofollow"><img
+																alt="Twitter (X)" src="images/X.svg" decoding="async"
+																loading="lazy" width="48" height="49"
+																data-file-width="1200" data-file-height="1227"></a>
+													</p>
+													<p><a href="https://www.tiktok.com/@satisfactorygame"
+															rel="nofollow"><img alt="TikTok" src="images/TikTok.svg"
+																decoding="async" loading="lazy" width="40" height="45"
+																data-file-width="258" data-file-height="291"></a>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="fp-nav" class="fp-section">
+									<div class="fpbox mobilecollapsible nomobile" style="text-align: center;">
+										<div class="fpHeader">
+											<div style="float: right; margin:5px;"></div><span
+												class="fpHeaderText">Navigation</span>
+										</div>
+										<div class="body" style="text-align: left; padding:0 5px 5px 5px">
+											<div role="navigation" class="navbox" aria-labelledby="Buildings">
+												<table
+													class="nowraplinks mw-collapsible mw-collapsed navbox-inner mw-made-collapsible nav-table">
+													<tbody>
+														<tr>
+															<th scope="col" class="navbox-title" colspan="2">
+																<div class="navbar plainlinks hlist navbar-mini">
+																	<ul>
+																		<li class="nv-view"><a
+																				href="https://satisfactory.wiki.gg/wiki/Template:BuildingNav"
+																				title="Template:BuildingNav"><abbr
+																					title="View this template">v</abbr></a>
+																		</li>
+																		<li class="nv-edit"><a class="text"
+																				href="https://satisfactory.wiki.gg/wiki/Template:BuildingNav?action=edit"><abbr
+																					title="Edit this template">e</abbr></a>
+																		</li>
+																		<li class="nv-hist"><a class="text"
+																				href="https://satisfactory.wiki.gg/wiki/Template:BuildingNav?action=history"><abbr
+																					title="History of this template">h</abbr></a>
+																		</li>
+																	</ul>
+																</div>
+																<div id="Buildings" class="navbox-title-text"><a
+																		href="https://satisfactory.wiki.gg/wiki/Buildings"
+																		title="Buildings">Buildings</a></div>
+
+																<div>
+																	[
+																	<a>
+																		Expand
+																	</a>
+																	]
+																</div>
+															</th>
+														</tr>
+														<tr class="navbox-spacer" hidden="until-found"></tr>
+													</tbody>
+												</table>
+											</div>
+
+											<div role="navigation" class="navbox"
+												aria-labelledby="Satisfactory_game_mechanics">
+												<table
+													class="nowraplinks mw-collapsible mw-collapsed navbox-inner mw-made-collapsible nav-table">
+													<tbody>
+														<tr>
+															<th scope="col" class="navbox-title" colspan="2">
+																<div class="navbar plainlinks hlist navbar-mini">
+																	<ul>
+																		<li class="nv-view"><a
+																				href="/wiki/Template:PioneerNav"
+																				title="Template:PioneerNav"><abbr
+																					title="View this template">v</abbr></a>
+																		</li>
+																		<li class="nv-edit"><a class="text"
+																				href="https://satisfactory.wiki.gg/wiki/Template:PioneerNav?action=edit"><abbr
+																					title="Edit this template">e</abbr></a>
+																		</li>
+																		<li class="nv-hist"><a class="text"
+																				href="https://satisfactory.wiki.gg/wiki/Template:PioneerNav?action=history"><abbr
+																					title="History of this template">h</abbr></a>
+																		</li>
+																	</ul>
+																</div>
+																<div id="Satisfactory_game_mechanics"
+																	class="navbox-title-text"><a
+																		href="/wiki/Satisfactory"
+																		title="Satisfactory">Satisfactory</a> game
+																	mechanics
+																</div>
+																<div>
+																	[
+																	<a>
+																		Expand
+																	</a>
+																	]
+																</div>
+															</th>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+
+											<div role="navigation" class="navbox" aria-labelledby="Items_and_Fluids">
+												<table
+													class="nowraplinks mw-collapsible mw-collapsed navbox-inner mw-made-collapsible nav-table">
+													<tbody>
+														<tr>
+															<th scope="col" class="navbox-title" colspan="2">
+																<div class="navbar plainlinks hlist navbar-mini">
+																	<ul>
+																		<li class="nv-view"><a
+																				href="https://satisfactory.wiki.gg/wiki/Template:ItemNav"
+																				title="Template:ItemNav"><abbr
+																					title="View this template">v</abbr></a>
+																		</li>
+																		<li class="nv-edit"><a class="text"
+																				href="https://satisfactory.wiki.gg/wiki/Template:ItemNav?action=edit"><abbr
+																					title="Edit this template">e</abbr></a>
+																		</li>
+																		<li class="nv-hist"><a class="text"
+																				href="https://satisfactory.wiki.gg/wiki/Template:ItemNav?action=history"><abbr
+																					title="History of this template">h</abbr></a>
+																		</li>
+																	</ul>
+																</div>
+																<div id="Items_and_Fluids" class="navbox-title-text"><a
+																		href="https://satisfactory.wiki.gg/wiki/Items"
+																		class="mw-redirect" title="Items">Items</a> and
+																	<a href="https://satisfactory.wiki.gg/wiki/Fluids"
+																		title="Fluids">Fluids</a>
+																</div>
+																<div>
+																	[
+																	<a>
+																		Expand
+																	</a>
+																	]
+																</div>
+															</th>
+														</tr>
+														<tr class="navbox-spacer" hidden="until-found"></tr>
+
+													</tbody>
+												</table>
+											</div>
+											<div role="navigation" class="navbox" aria-labelledby="Flora_and_Fauna">
+												<table
+													class="nowraplinks mw-collapsible mw-collapsed navbox-inner mw-made-collapsible nav-table">
+													<tbody>
+														<tr>
+															<th scope="col" class="navbox-title" colspan="2">
+																<div class="navbar plainlinks hlist navbar-mini">
+																	<ul>
+																		<li class="nv-view"><a
+																				href="https://satisfactory.wiki.gg/wiki/Template:LifeNav"
+																				title="Template:LifeNav"><abbr
+																					title="View this template">v</abbr></a>
+																		</li>
+																		<li class="nv-edit"><a class="text"
+																				href="https://satisfactory.wiki.gg/wiki/Template:LifeNav?action=edit"><abbr
+																					title="Edit this template">e</abbr></a>
+																		</li>
+																		<li class="nv-hist"><a class="text"
+																				href="https://satisfactory.wiki.gg/wiki/Template:LifeNav?action=history"><abbr
+																					title="History of this template">h</abbr></a>
+																		</li>
+																	</ul>
+																</div>
+																<div id="Flora_and_Fauna" class="navbox-title-text"><a
+																		href="https://satisfactory.wiki.gg/wiki/Flora"
+																		title="Flora">Flora</a> and
+																	<a href="https://satisfactory.wiki.gg/wiki/Fauna"
+																		class="mw-redirect" title="Fauna">Fauna</a>
+																</div>
+																<div>
+																	[
+																	<a>
+																		Expand
+																	</a>
+																	]
+																</div>
+															</th>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div role="navigation" class="navbox" aria-labelledby="Transportation">
+												<table
+													class="nowraplinks mw-collapsible mw-collapsed navbox-inner mw-made-collapsible nav-table">
+													<tbody>
+														<tr>
+															<th scope="col" class="navbox-title" colspan="2">
+																<div class="navbar plainlinks hlist navbar-mini">
+																	<ul>
+																		<li class="nv-view"><a
+																				href="https://satisfactory.wiki.gg/wiki/Template:VehicleNav"
+																				title="Template:VehicleNav"><abbr
+																					title="View this template">v</abbr></a>
+																		</li>
+																		<li class="nv-edit"><a class="text"
+																				href="https://satisfactory.wiki.gg/wiki/Template:VehicleNav?action=edit"><abbr
+																					title="Edit this template">e</abbr></a>
+																		</li>
+																		<li class="nv-hist"><a class="text"
+																				href="https://satisfactory.wiki.gg/wiki/Template:VehicleNav?action=history"><abbr
+																					title="History of this template">h</abbr></a>
+																		</li>
+																	</ul>
+																</div>
+																<div id="Transportation" class="navbox-title-text"><a
+																		href="https://satisfactory.wiki.gg/wiki/Vehicles"
+																		title="Vehicles">Transportation</a>
+																</div>
+																<div>
+																	[
+																	<a>
+																		Expand
+																	</a>
+																	]
+																</div>
+															</th>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+											<div role="navigation" class="navbox" aria-labelledby="Patches">
+												<table
+													class="nowraplinks mw-collapsible mw-collapsed navbox-inner mw-made-collapsible nav-table">
+													<tbody>
+														<tr>
+															<th scope="col" class="navbox-title" colspan="2"
+																style="display: flex; justify-content: space-between; width: 100%;">
+																<div class="navbar plainlinks hlist navbar-mini">
+																	<ul>
+																		<li class="nv-view"><a
+																				href="https://satisfactory.wiki.gg/wiki/Template:PatchesNav"
+																				title="Template:PatchesNav"><abbr
+																					title="View this template">v</abbr></a>
+																		</li>
+																		<li class="nv-edit"><a class="text"
+																				href="https://satisfactory.wiki.gg/wiki/Template:PatchesNav?action=edit"><abbr
+																					title="Edit this template">e</abbr></a>
+																		</li>
+																		<li class="nv-hist"><a class="text"
+																				href="https://satisfactory.wiki.gg/wiki/Template:PatchesNav?action=history"><abbr
+																					title="History of this template">h</abbr></a>
+																		</li>
+																	</ul>
+																</div>
+																<div id="Patches" class="navbox-title-text">
+																	<a href="https://satisfactory.wiki.gg/wiki/Category:Patch_notes"
+																		title="Category:Patch notes">Patches</a>
+																</div>
+																<div>
+																	[
+																	<a>
+																		Expand
+																	</a>
+																	]
+																</div>
+															</th>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="fp-bottom" class="fp-section">
+									<div class="fpbox" id="fpwiki" style="text-align: center;">
+										<div class="fpHeader">
+											<div style="float: right; margin:5px;"></div><span
+												class="fpHeaderText">Community</span>
+										</div>
+										<div class="fplinks" style="display: flex; justify-content: space-between;">
+											<div class="fplink-outer plainlinks">
+												<div class="fplink">
+													<div class="fplink-inner"><a href="/wiki/Special:UserLogin/signup"
+															title="Special:UserLogin/signup">Register</a>
+													</div>
+												</div>
+											</div>
+											<div class="fplink-outer plainlinks">
+												<div class="fplink">
+													<div class="fplink-inner"><a
+															href="/wiki/Satisfactory_Wiki:Community_portal"
+															title="Satisfactory Wiki:Community portal">How to help</a>
+													</div>
+												</div>
+											</div>
+											<div class="fplink-outer plainlinks">
+												<div class="fplink">
+													<div class="fplink-inner"><a
+															href="/wiki/Satisfactory_Wiki:Style_guide"
+															title="Satisfactory Wiki:Style guide">Style guide</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<hr>
+										<div class="nomobile">
+											<div>To write a new article, just enter the article title in the box below
+												or in the search box at the top of the page.</div>
+											<div class="mw-inputbox-centered">
+												<form name="createbox" class="createbox mw-inputbox-form-inline"
+													action="/index.php" method="get"><input type="hidden" value="edit"
+														name="action">
+													<div class="cdx-text-input">
+														<input name="title"
+															class="mw-inputbox-createbox cdx-text-input__input"
+															placeholder="" required="" size="50" dir="ltr"
+															style="height: 100%;">
+													</div>
+													<input type="submit" name="create" value="Create page"
+														class="cdx-button cdx-button--action-progressive cdx-button--weight-primary">
+												</form>
+											</div>
+											<hr>
+											<div style="text-align: left;">
+												<ul>
+													<li><b>Adding content</b>
+														<ul>
+															<li>If you are unsure of what to do or how to create a page,
+																search for a few articles on the same topic and see what
+																they look like. You can always view the source code in a
+																wiki and learn from what others have done.</li>
+															<li>An edit doesn't have to be massive; if you feel you
+																don't want to create whole articles, then just fixing
+																spelling errors and broken links is enough.</li>
+														</ul>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="nomobile" style="text-align: right; margin-right: 10px;"><small>Main
+										page sections: <a
+											href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki/Top_section"
+											title="Satisfactory Wiki/Top section">Top</a> · <a
+											href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki/Flex_section"
+											title="Satisfactory Wiki/Flex section">Flex</a> · <a
+											href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki/Nav_section"
+											title="Satisfactory Wiki/Nav section">Nav</a> · <a
+											href="https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki/Bottom_section"
+											title="Satisfactory Wiki/Bottom section">Bottom</a>. Changes for the
+										main page can be proposed <a
+											href="https://satisfactory.wiki.gg/wiki/Talk:Satisfactory_Wiki"
+											title="Talk:Satisfactory Wiki">here</a>. </small></div>
+							</div>
+						</div>
+						<div id="catlinks" class="catlinks" data-mw="interface">
+							<div id="mw-normal-catlinks" class="mw-normal-catlinks"><a
+									href="https://satisfactory.wiki.gg/wiki/Special:Categories"
+									title="Special:Categories">Category</a>: <ul>
+									<li><a href="https://satisfactory.wiki.gg/wiki/Category:Satisfactory_Wiki"
+											title="Category:Satisfactory Wiki">Satisfactory Wiki</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</main>
+
+			</div>
+			<aside id="wikigg-sl-footer" data-mw="WggShowcaseLayout">
+				<div class="wikigg-showcase__unit wikigg-showcase__reserved--lb" data-wgg-unit-type="internal"><a
+						target="_blank"
+						href="https://app.wiki.gg/showcase/go?utm_campaign=ccm_desktop_oct_released_game_test&amp;utm_medium=bannerfooter&amp;utm_source=satisfactory.wiki.gg&amp;location=android"><img
+							src="images/1e3To1Zvsx678sQMi0gJm-LJ4GaSnF6We.jpeg"></a></div>
+			</aside>
+
+		</div>
+	</div>
+	<footer id="footer" class="mw-footer">
+		<ul id="footer-info">
+			<li id="footer-info-lastmod"> This page was last edited on 8 November 2024, at 01:21.</li>
+			<li id="footer-info-copyright">
+				<div class="wikigg-copyright-box">Pages that were created prior to March 2023 are adapted from the
+					Satisfactory Fandom wiki.<br>Page content is under <a class="external" rel="nofollow"
+						href="https://creativecommons.org/licenses/by-nc-sa/4.0">Creative Commons
+						Attribution-Non-Commercial-ShareAlike 4.0 License</a> unless otherwise noted.</div>
+			</li>
+		</ul>
+
+		<div style="display: inline-flex; justify-content: space-between; width: 100%;">
+			<ul id="footer-places" style="display: flex; gap: 1em">
+				<li id="footer-places-wikigg-tos"><a href="https://www.indie.io/terms-of-service">Terms of Service</a>
+				</li>
+				<li id="footer-places-wikigg-privacy"><a href="https://www.indie.io/privacy-policy">Privacy policy</a>
+				</li>
+				<li id="footer-places-wikigg-support"><a href="https://support.wiki.gg">Support Wiki</a></li>
+				<li id="footer-places-wikigg-servicedesk"><a href="https://wiki.gg/go/servicedesk">Send a ticket to
+						wiki.gg</a></li>
+				<li id="footer-places-wikigg-statuspage"><a href="https://wikiggstatus.com">Status page</a></li>
+				<li id="footer-places-wikigg-pcmp"><a href="#" class="nn-cmp-show" style="display: none">Manage cookie
+						settings</a></li>
+			</ul>
+
+			<ul id="footer-icons" class="noprint">
+				<li id="footer-copyrightico"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0"
+						class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><img
+							src="images/CC-BY-NC-SA_footer_badge_dark.svg"
+							alt="Creative Commons Attribution-Non-Commercial-ShareAlike 4.0 License" height="31"
+							width="88" loading="lazy" data-theme="dark"></a></li>
+				<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"
+						class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled">
+						<img src="images/MediaWiki_footer_badge_dark.svg" alt="Powered by MediaWiki" width="88"
+							height="31" loading="lazy" data-theme="dark"></a></li>
+				<li id="footer-partofico"><a href="https://wiki.gg"
+						class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled">
+						<img src="images/Network_footer_badge_dark.svg" alt="Part of wiki.gg" height="31" width="88"
+							loading="lazy" data-theme="dark"></a></li>
+			</ul>
+		</div>
+
+	</footer>
+</body>
+
+</html>
