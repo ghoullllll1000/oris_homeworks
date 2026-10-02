@@ -54,7 +54,7 @@ public class HttpServer
     {
         HttpListenerResponse response = context.Response;
 
-        if (!File.Exists("search-engine.html"))
+        if (!File.Exists("search/search-engine.html"))
         {
             Console.WriteLine("Ошибка: файл search-engine.html не найден.");
 
@@ -72,7 +72,7 @@ public class HttpServer
         }
 
         string htmlFileText =
-            await File.ReadAllTextAsync("search-engine.html");
+            await File.ReadAllTextAsync("search/search-engine.html");
 
         byte[] buffer =
             Encoding.UTF8.GetBytes(htmlFileText);
