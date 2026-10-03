@@ -12,7 +12,7 @@
 		</Content>
 	</ItemGroup>
 	<ItemGroup>
-		<None Include="search\**\*" CopyToOutputDirectory="PreserveNewest"/>
+		<None Include="static\**" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 
