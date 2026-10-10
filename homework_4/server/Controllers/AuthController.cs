@@ -1,24 +1,22 @@
 ﻿using Server.Framework.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Server.Controllers
 {
     [HttpController("auth")]
-    internal class AuthController
+    public class AuthController
     {
         [Get("login")]
-        public void Login()
+        public string Login()
         {
-            // TODO: return login.html
+            return "steam/index.html";
         }
 
         [Post("login")]
-        public void Login(string login, string password)
+        public string Login([FormData] string login, [FormData] string password)
         {
-            // TODO: вывод в консоль login и password из form(и query)
             Console.WriteLine($"Логин: {login}; Пароль: {password}");
+            return "steam/index.html";
         }
+
     }
 }

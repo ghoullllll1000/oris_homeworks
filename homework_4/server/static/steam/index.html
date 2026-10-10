@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Войти</title>
+    <base href="/steam/">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+    <div class="steam-header-container">
+        <div class="steam-header">
+            <div class="header">
+                <a class="download-button" href="https://store.steampowered.com/about/">
+                    <img src="images/download.png">
+                    Установить Steam
+                </a>
+                <a class="header-aa"
+                    href="https://store.steampowered.com/login/?redir=login%2F%3Fredir%3D%253Fsnr%253D1_60_4__global-header%26redir_ssl%3D1%26snr%3D1_4_4__global-header&redir_ssl=1&snr=1_60_4__global-header">вход</a>
+                |
+                <a class="header-aa"> язык</a>
+            </div>
+            <div class="nav">
+                <a href="https://store.steampowered.com/?snr=1_60_4__global-header">
+                    <img src="images/logo_steam.svg">
+                </a>
+                <a href="https://store.steampowered.com/?snr=1_60_4__global-header" target="_blank">МАГАЗИН</a>
+                <a href="https://steamcommunity.com/" target="_blank">СООБЩЕСТВО</a>
+                <a href="https://store.steampowered.com/about/?snr=1_60_4__global-header">ИНФОРМАЦИЯ</a>
+                <a href="https://help.steampowered.com/ru/">ПОДДЕРЖКА</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="steam-shoulder">
+        <div class="shoulder-inner">
+            <div>
+                <button type="button" class="steam-shoulder-button">
+                    <span>Просмотр</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none" role="presentation">
+                        <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.81026 6.36084L8.50899 3.66211L9.6875 4.84062L5.81026 8.71786L1.93302 4.84062L3.11153 3.66211L5.81026 6.36084Z">
+                        </path>
+                    </svg>
+                </button>
+                <button type="button" class="steam-shoulder-button">
+                    <span>Рекомендации</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none" role="presentation">
+                        <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.81026 6.36084L8.50899 3.66211L9.6875 4.84062L5.81026 8.71786L1.93302 4.84062L3.11153 3.66211L5.81026 6.36084Z">
+                        </path>
+                    </svg>
+                </button>
+                <button type="button" class="steam-shoulder-button">
+                    <span>Категории</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none" role="presentation">
+                        <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.81026 6.36084L8.50899 3.66211L9.6875 4.84062L5.81026 8.71786L1.93302 4.84062L3.11153 3.66211L5.81026 6.36084Z">
+                        </path>
+                    </svg>
+                </button>
+                <button type="button" class="steam-shoulder-button">
+                    <span>Устройства</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none" role="presentation">
+                        <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.81026 6.36084L8.50899 3.66211L9.6875 4.84062L5.81026 8.71786L1.93302 4.84062L3.11153 3.66211L5.81026 6.36084Z">
+                        </path>
+                    </svg>
+                </button>
+                <button type="button" class="steam-shoulder-button">
+                    <span>Способ игры</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none" role="presentation">
+                        <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.81026 6.36084L8.50899 3.66211L9.6875 4.84062L5.81026 8.71786L1.93302 4.84062L3.11153 3.66211L5.81026 6.36084Z">
+                        </path>
+                    </svg>
+                </button>
+                <button type="button" class="steam-shoulder-button">
+                    <span>Особые разделы</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none" role="presentation">
+                        <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.81026 6.36084L8.50899 3.66211L9.6875 4.84062L5.81026 8.71786L1.93302 4.84062L3.11153 3.66211L5.81026 6.36084Z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <div>
+                <form class="shoulder-form" 
+                    action="/auth/login"
+                    role="search" method="post">
+                    <input type="search" placeholder="Поиск по магазину" name="term">
+                    <button type="submit" class="shoulder-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none" aria-label="Поиск">
+                            <path fill="currentColor"
+                                d="M13.8296 12.0786C14.8347 10.6321 15.2623 8.86133 15.0284 7.11496C14.7945 5.36859 13.9159 3.77313 12.5656 2.64269C11.2153 1.51224 9.49114 0.928708 7.73254 1.00696C5.97394 1.08522 4.30831 1.8196 3.06357 3.06552C1.81882 4.31144 1.08514 5.97864 1.00696 7.7389C0.928776 9.49916 1.51176 11.2249 2.64114 12.5765C3.77052 13.9281 5.36446 14.8075 7.10919 15.0417C8.85391 15.2758 10.623 14.8477 12.0682 13.8417L15.2185 17L15.3997 16.8187L16.8188 15.3982L17 15.2168L13.8296 12.0786ZM8.04222 12.5824C7.14643 12.5824 6.27075 12.3165 5.52593 11.8183C4.7811 11.3202 4.20058 10.6122 3.85777 9.78376C3.51497 8.95538 3.42528 8.04384 3.60004 7.16443C3.7748 6.28502 4.20616 5.47723 4.83958 4.84321C5.47301 4.20919 6.28004 3.77742 7.15862 3.60249C8.0372 3.42757 8.94787 3.51734 9.77548 3.86047C10.6031 4.2036 11.3104 4.78467 11.8081 5.5302C12.3058 6.27573 12.5714 7.15223 12.5714 8.04887C12.5714 9.25123 12.0943 10.4043 11.2449 11.2545C10.3955 12.1047 9.24344 12.5824 8.04222 12.5824V12.5824Z">
+                            </path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="steam-body-container">
+        <div>
+            <div class="steam-body">
+                <div class="body-entrance">
+                    <p>Вход</p>
+                </div>
+                <div class="body-block">
+                    <form class="panel-left form-field" action="/auth/login" method="post">
+                        <div style="color: #1999ff">
+                            <div>ВОЙДИТЕ, ИСПОЛЬЗУЯ ИМЯ АККАУНТА</div>
+                            <input type="text" name="login" class="form-input">
+                        </div>
+
+                        <div>
+                            <div>ПАРОЛЬ</div>
+                            <input type="password" class="form-input" name="password">
+                        </div>
+
+                        <div class="form-remember">
+                            <input type="checkbox" name="remember" width="14">
+                            <div>Запомнить меня</div>
+                        </div>
+
+                        <div class="form-enter">
+                            <button>Войти</button>
+                        </div>
+                        <div class="form-field-mobile" style="margin-top: 27px;">
+                            <a href="https://help.steampowered.com/wizard/HelpWithLogin?redir=https%3A%2F%2Fstore.steampowered.com%2Flogin%2F%3Fredir%3D%26redir_ssl%3D1"
+                                target="_blank">Помогите, я не могу войти в аккаунт</a>
+                        </div>
+
+                    </form>
+                    <div class="panel-right">
+                        <div class="form-field" style="color: #1999ff">ИЛИ QR-КОД</div>
+                        <div class="panel-right-img">
+                            <img src="images/steam_qr.svg" width="170">
+                        </div>
+                        <div class="form-field-mobile">
+                            Используйте
+                            <a href="https://store.steampowered.com/mobile">мобильное приложение Steam, </a>
+                            чтобы войти с помощью QR-кода
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info">
+        <div class="info-left">
+            <div class="info-text">Первый раз в Steam?</div>
+            <a target="_top" href="https://store.steampowered.com/join/?&amp;snr=1_60_4__62" class="info-text-button">
+                <span>Создать аккаунт</span>
+            </a>
+        </div>
+        <div class="info-right">
+            Это бесплатно и просто. Откройте для себя тысячи игр, в которые можно играть с миллионами новых
+            друзей.
+            <a href="https://store.steampowered.com/about">Узнайте больше о Steam</a>
+        </div>
+    </div>
+
+    <footer class="footer-nav">
+        <div class="block-lic">
+            <div class="info-icon">
+                <a href="https://store.steampowered.com/?snr=1_44_44_" target="_blank">
+                    <img src="images/logo_steam.svg " width="142" height="42" viewbox="0 0 142 42"></img>
+                </a>
+                <a href="https://valvesoftware.com/" target="_blank">
+                    <img src="images/footerLogo_valve_new.png" width="95" height="27"></img>
+                </a>
+            </div>
+            <p>
+                © 2026 Valve Corporation. Все права сохранены.
+                Все торговые марки являются собственностью соответствующих владельцев в США и других странах.
+                <br>
+                Все цены указаны с учётом НДС (если применимо).
+            </p>
+            <div class="info-icon">
+                <a href="https://www.youtube.com/@Steam" target="_blank" >
+                    <svg width="30" height="22" viewBox="0 0 30 22"
+                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11.9318 6.84835V15.7121L19.7727 11.2801L11.9318 6.84835ZM29.3731 18.5011C29.028 19.7918 28.0114 20.8083 26.7208 21.1533C24.3813 21.7803 14.9999 21.7803 14.9999 21.7803C14.9999 21.7803 5.61873 21.7803 3.27924 21.1533C1.98856 20.8083 0.971973 19.7918 0.626931 18.5011C0 16.1616 0 11.2802 0 11.2802C0 11.2802 0 6.3991 0.626931 4.05945C0.971973 2.76859 1.98843 1.7522 3.27924 1.40697C5.61873 0.780272 14.9999 0.780273 14.9999 0.780273C14.9999 0.780273 24.3813 0.780272 26.7208 1.40697C28.0114 1.7522 29.028 2.76859 29.3731 4.05945C30 6.3991 30 11.2803 30 11.2803C30 11.2803 30 16.1616 29.3731 18.5011Z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://bsky.app/profile/steampowered.com" target="_blank">
+                    <svg width="24" height="22" viewBox="0 0 24 22" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5.20232 2.04977C7.95386 4.13518 10.9135 8.36354 12.0001 10.6327C13.0868 8.3637 16.0462 4.13514 18.7978 2.04977C20.7832 0.545013 24 -0.619279 24 3.08556C24 3.82547 23.5798 9.30116 23.3333 10.1901C22.4767 13.2807 19.355 14.069 16.5782 13.5919C21.432 14.4259 22.6667 17.1884 20.0001 19.9508C14.9357 25.1972 12.7211 18.6345 12.1534 16.9528C12.0494 16.6446 12.0007 16.5003 12 16.623C11.9993 16.5003 11.9506 16.6446 11.8466 16.9528C11.2791 18.6345 9.06454 25.1974 3.99987 19.9508C1.33323 17.1884 2.56794 14.4257 7.42179 13.5919C4.64492 14.069 1.5232 13.2807 0.666658 10.1901C0.420196 9.30108 0 3.82538 0 3.08556C0 -0.619279 3.21689 0.545013 5.20218 2.04977H5.20232Z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://facebook.com/steam" target="_blank">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10.9998 0C4.92482 0 0 4.94301 0 11.0404C0 16.2179 3.55161 20.5625 8.34267 21.7558V14.4144H6.07452V11.0404H8.34267V9.58661C8.34267 5.82889 10.0371 4.08716 13.7128 4.08716C14.4097 4.08716 15.6122 4.2245 16.1041 4.3614V7.4196C15.8445 7.39221 15.3935 7.37853 14.8334 7.37853C13.0299 7.37853 12.333 8.06435 12.333 9.84716V11.0404H15.9259L15.3086 14.4144H12.333V22C17.7796 21.3398 22 16.6851 22 11.0404C21.9996 4.94301 17.0747 0 10.9998 0Z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/steam" target="_blank">
+                    <svg width="20" height="22" viewBox="0 0 20 22" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11.9027 9.45261L19.3482 0.560547H17.5838L11.119 8.2814L5.95547 0.560547H0L7.8082 12.2358L0 21.5605H1.76443L8.59152 13.4071L14.0445 21.5605H20L11.9023 9.45261H11.9027ZM9.48608 12.3387L8.69495 11.1761L2.40018 1.92521H5.11025L10.1902 9.39099L10.9813 10.5536L17.5847 20.2579H14.8746L9.48608 12.3392V12.3387Z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-styles footer-text">
+            <h3>STEAM</h3>
+            <a href="https://store.steampowered.com/about/">О Steam</a>
+            <a href="https://store.steampowered.com/subscriber_agreement/">Соглашение подписчика Steam</a>
+            <a href="https://partner.steamgames.com/">Steamworks</a>
+            <a href="https://partner.steamgames.com/steamdirect">Распространение в Steam</a>
+            <a href="https://store.steampowered.com/digitalgiftcards/">Подарочные карты</a>
+        </div>
+
+        <div class="footer-styles footer-text">
+            <h3>VALVE</h3>
+
+            <a href="https://valvesoftware.com/about">О Valve</a>
+            <a href="https://valvesoftware.com/">Вакансии</a>
+            <a href="https://store.steampowered.com/hardware/">Оборудование</a>
+            <a href="https://store.steampowered.com/hardware_recycling/">Переработка</a>
+        </div>
+
+        <div class="footer-styles footer-text">
+            <h3>ПРАВОВАЯ ИНФОРМАЦИЯ</h3>
+
+            <a href="https://store.steampowered.com/privacy_agreement/">Конфиденциальность</a>
+            <a href="https://help.steampowered.com/faqs/view/10BB-D27A-6378-4436">Доступность</a>
+            <a href="https://store.steampowered.com/legal/">Положения и политика</a>
+            <a href="https://store.steampowered.com/account/cookiepreferences/">Файлы cookie</a>
+            <a href="https://store.steampowered.com/steam_refunds/">Возврат средств</a>
+        </div>
+
+        <div class="footer-styles footer-text">
+            <h3>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</h3>
+
+            <a href="https://store.steampowered.com/about/?snr=1_44_44_">Установить Steam</a>
+            <a href="https://store.steampowered.com/mobile/?snr=1_44_44_">Установить мобильные приложения</a>
+            <a href="https://help.steampowered.com/">Поддержка</a>
+            <a href="https://store.steampowered.com/account/?snr=1_44_44_">Мой аккаунт</a>
+        </div>
+    </footer>
+
+
+
+
+</body>
+
+</html>
