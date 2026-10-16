@@ -19,10 +19,20 @@ namespace Server.Controllers
         public void Send([QueryData] string to)
         {
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Отправитель", "studymailghoul@yandex.ru"));
-            message.To.Add(new MailboxAddress("Получатель", "studyexample@yandex.ru"));
-            message.Subject = "Тестовое письмо из MailKit";
-            message.Body = new TextPart("plain") { Text = "Здравствуйте! Дз от Рахматуллиной Айгуль 11-541" };
+            message.From.Add(new MailboxAddress("Айгуль Рахматуллина", "studymailghoul@yandex.ru"));
+            message.To.Add(new MailboxAddress("Получатель", to));
+            message.Subject = "Студентка Рахматуллина";
+            var body = new TextPart("plain") { Text = "Здравствуйте! Дз от Рахматуллиной Айгуль 11-541. Зип-архив" };
+
+            var builder = new BodyBuilder();
+            builder.TextBody = body.GetText(Encoding.UTF8);
+
+            builder.Attachments.Add("server.zip");
+
+            message.Body = builder.ToMessageBody();
+
+            message.MessageId = MimeKit.Utils.MimeUtils.GenerateMessageId();
+            message.Date = DateTimeOffset.Now;
 
             using (var client = new SmtpClient())
             {
@@ -31,7 +41,7 @@ namespace Server.Controllers
                 client.Send(message);
                 client.Disconnect(true);
             }
-
+            //sjweboolojyqfcgo
             Console.WriteLine("Письмо отправлено!");
 
         }

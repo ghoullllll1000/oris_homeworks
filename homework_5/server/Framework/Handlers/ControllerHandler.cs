@@ -111,7 +111,6 @@ namespace Server.Framework.Handlers
                         {
                             var buffer = obj.Execute(context);
                             await HttpResponseWriter.WriteBytesAsync(context.Response, buffer);
-
                         }
                         else
                         {
