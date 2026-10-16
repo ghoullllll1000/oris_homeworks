@@ -32,7 +32,7 @@ namespace Server.Controllers
                 </body></html>
                 """;
 
-            return Html(html); //TODO привести к байтам
+            return Html(html); 
         }
 
         [Get("json")]
@@ -42,7 +42,7 @@ namespace Server.Controllers
 
             //var result = JsonSerializer.Serialize(json);
 
-            return Json(json); //TODO привести к байтам
+            return Json(json); 
         }
 
         [Get("json2")]
@@ -52,7 +52,7 @@ namespace Server.Controllers
 
             //var result = JsonSerializer.Serialize(json);
 
-            return Json(json); //TODO привести к байтам
+            return Json(json); 
         }
     }
 }

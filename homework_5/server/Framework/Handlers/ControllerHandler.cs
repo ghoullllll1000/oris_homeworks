@@ -1,4 +1,5 @@
 ﻿using Server.Framework.Attributes;
+using Server.Framework.Core;
 using Server.Framework.HttpResponses;
 using System.IO;
 using System.Net;
@@ -109,8 +110,13 @@ namespace Server.Framework.Handlers
                         if (result is IHttpResponseTypeResult obj)
                         {
                             var buffer = obj.Execute(context);
+                            await HttpResponseWriter.WriteBytesAsync(context.Response, buffer);
 
-
+                        }
+                        else
+                        {
+                            string html = result as string?? "<p>Метод контрллера выполнен</p>";
+                            await HttpResponseWriter.WriteHtmlAsync(context.Response, html);
                         }
 
                         if (result is string fileName)
