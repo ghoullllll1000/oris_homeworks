@@ -21,8 +21,8 @@ namespace Server.Controllers
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Айгуль Рахматуллина", "studymailghoul@yandex.ru"));
             message.To.Add(new MailboxAddress("Получатель", to));
-            message.Subject = "Студентка Рахматуллина";
-            var body = new TextPart("plain") { Text = "Здравствуйте! Дз от Рахматуллиной Айгуль 11-541. Зип-архив" };
+            message.Subject = "КФУ ИТИС";
+            var body = new TextPart("plain") { Text = "Здравствуйте! Дз от Рахматуллиной Айгуль. Группа: 11-541." };
 
             var builder = new BodyBuilder();
             builder.TextBody = body.GetText(Encoding.UTF8);

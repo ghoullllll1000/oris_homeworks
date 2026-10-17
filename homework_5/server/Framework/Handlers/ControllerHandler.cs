@@ -114,7 +114,7 @@ namespace Server.Framework.Handlers
                         }
                         else
                         {
-                            string html = result as string?? "<p>Метод контрллера выполнен</p>";
+                            string html = result as string?? "<h1>Метод контроллера выполнен</h1>";
                             await HttpResponseWriter.WriteHtmlAsync(context.Response, html);
                         }
 
