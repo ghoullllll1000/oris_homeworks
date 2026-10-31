@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.steam-header-container {
+    background-color: #171d25;
+    color: #b8b6b4;
+    padding-top: 10px;
+}
+
+.steam-header {
+    margin: auto;
+    width: 1200px;
+    height: 104px;
+}
+
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #5c7e10;
+    height: 24px;
+    width: 137.2px;
+    text-decoration: none;
+    color: #e5e4dc;
+    font-size: 11px;
+    padding: 0 8px;
+    gap: 6px
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.header-aa {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #b8b6b4;
+    font-size: 11px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #dcdedf;
+    font-size: 16px;
+}
+
+.nav img {
+    width: 144.5px;
+    height: 44px;
+    font-size: 14px;
+    margin-right: 25px;
+
+}
+
+.nav a:hover {
+    color: #1a9fff;
+    text-decoration: underline;
+}
+
+.steam-shoulder {
+    background-color: #192330;
+
+}
+
+.shoulder-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    margin: auto;
+    width: 1216px;
+    height: 46px;
+}
+
+.steam-shoulder-button {
+    display: inline-flex;
+    gap: 6px;
+    background-color: #192330;
+    border: none;
+    outline: none;
+    padding: 0 8px;
+}
+
+.steam-shoulder span {
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.steam-shoulder svg {
+    width: 14px;
+    color: #ffffff;
+}
+
+.shoulder-form {
+    display: flex;
+}
+
+.shoulder-form input {
+    width: 440px;
+    height: 34px;
+    color: #ffffff;
+    flex: 1;
+    min-width: 0;
+    background-color: #434953;
+    padding: 0 10px;
+    border-radius: 2px 0px 0px 2px;
+    border: 1px solid hsla(0, 0%, 100%, .1411764706);
+    outline: none;
+}
+
+.shoulder-form input:hover {
+    border-color: #66c0f4;
+}
+
+.shoulder-form input::placeholder {
+    color: #ffffff;
+    font-style: italic;
+}
+
+.shoulder-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    background-color: #1a9fff;
+    border: none;
+    outline: none;
+}
+
+.shoulder-button svg {
+    width: 16px;
+}
+
+.steam-body-container {
+    padding-top: 80px;
+    padding-bottom: 150px;
+    background-image: url("../images/new_login_bg_strong_mask.jpg");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+}
+
+.steam-body {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    
+}
+
+.body-entrance {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800px;
+}
+
+.body-block {
+    display: flex;
+    background-color: #181a21;
+    padding: 24px 32px;
+}
+
+.panel-left {
+    display: flex;
+    flex-direction: column;
+    width: 510px;
+    height: 280px;
+    font-weight: 500px;
+    gap: 12px;
+}
+
+.form-field {
+    color: #afafaf;
+    font-size: 12px;
+}
+
+.form-input {
+    border: 1px solid #32353c;
+    padding: 10px;
+    background-color: #32353c;
+    outline: none;
+    font-size: 15px;
+    width: 510px;
+    height: 39px;
+    color: #dcdedf
+}
+
+.form-remember {
+    display: flex;
+    color: #afafaf;
+    font-size: 12px;
+    gap:6px
+}
+
+.form-enter {
+    width: 510px;
+    height: 47px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-enter button {
+    width: 270px;
+    height: 47px;
+    font-size:16px;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px;
+    background: linear-gradient(#06BFFF 0%, #2D73FF 100%);
+    border:none;
+    outline: none;
+    border-radius: 2px;
+}
+
+.panel-right {
+    display: flex;
+    flex-direction: column;
+    width: 198px;
+    height: 280px;
+    margin-left: 40px;
+}
+
+.panel-right-img {
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 15px;
+    border-radius: 7.5px;
+}
+
+.form-field-mobile {
+    color: #afafaf;
+    font-size: 12px;
+    text-align: center;
+    padding: 12px 0px;
+}
+
+.form-field-mobile a {
+    color: #afafaf;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    background-color: #181A21;
+    color: #b8b6b4;
+    padding-top: 48px;
+    justify-content: center;
+}
+
+.info-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 300px;
+    height: 85.6px;
+    margin-top: 10px;
+}
+
+.info-right {
+    display: flex;
+    width: 300px;
+    height: 80px;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #b8b6b4;
+}
+
+.info-right a{
+    color: #b8b6b4;
+}
+
+.info-text {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.info-text-button {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color:#ffffff;
+    text-decoration: none;
+    line-height: 30px;
+    margin: 10px 0 10px 0;
+    background: linear-gradient(#06BFFF 0%, #2D73FF 100%);
+    border-radius: 2px;
+    width: 153px;
+    height: 30px;
+}
+
+.footer-nav {
+    display: flex;
+    background-color: #181A21;
+    color: #b8b6b4;
+    padding-left: 40px;
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    gap: 64px;
+}
+
+.block-lic {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 188.2px;
+    gap:24px;
+    padding-left: 40px;
+}
+
+.block-lic p {
+    font-size: 11px;
+    color: #acb2b8;
+}
+
+.footer-text {
+    color: #b8bcbf;
+    font-size: 13px;
+}
+
+.footer-text a {
+    text-decoration: none;
+    color:#8b929a;
+    font-size: 13px;
+}
+
+.footer-text h3 {
+    color: #b8bcbf;
+    font-size: 13px;
+}
+
+.info-icon{
+    display: flex;
+    gap:32px;
+    color: #8b929a
+}
+
+.info-icon a {
+    color: #8b929a;
+}
+
+.footer-styles {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
